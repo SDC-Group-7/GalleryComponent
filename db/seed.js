@@ -1,10 +1,11 @@
 const db = require('./index.js');
+const { IMAGE_URL } = require('./AWS_S3_IMAGES.js');
 
 // store S3 images in an array
 const buckets = [];
 const gettingImagesS3 = () => {
   for (let i = 1; i <= 10; i += 1) {
-    buckets.push(`https://fechr.s3-us-west-1.amazonaws.com/${i}.jpg`);
+    buckets.push(`${IMAGE_URL}/${i}.jpg`);
   }
 };
 gettingImagesS3();
