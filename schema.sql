@@ -10,6 +10,14 @@ CREATE TABLE products (
 );
 
 CREATE TABLE images (
-  image_id INT NOT NULL,
-  image_url VARCHAR(255)
+  image_id INT NOT NULL AUTO_INCREMENT,
+  image_url VARCHAR(255),
+  PRIMARY KEY ( image_id )
+);
+
+CREATE TABLE reference (
+  reference_id INT NOT NULL AUTO_INCREMENT,
+  prod_id INT NOT NULL,
+  img_id INT,
+  PRIMARY KEY (reference_id)
 );
