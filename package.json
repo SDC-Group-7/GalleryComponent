@@ -8,8 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "reset": "mysql -u root < schema.sql",
-    "seed": "node db/seed.js",
+    "reset-db": "mysql -u root < schema.sql",
+    "seed-db": "node db/seed.js",
     "react-dev": "webpack -w",
     "start": "nodemon ./server/index.js"
   },
