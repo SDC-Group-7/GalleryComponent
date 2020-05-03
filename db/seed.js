@@ -12,7 +12,7 @@ for (let i = 1; i <= 100; i += 1) {
   db.query('INSERT INTO products (product_id) VALUES (?)', [i]);
   db.query('INSERT INTO images (image_url) VALUES (?)', [`${buckets[Math.floor(Math.random() * 10)]}`]);
 
-  for (let k = 1; k < 10; k += 1) {
+  for (let k = 1; k < Math.floor(Math.random() * 10); k += 1) {
     db.query('INSERT INTO reference (prod_id, img_id) VALUES (?, ?)', [i, Math.floor(Math.random() * 10)]);
   }
 }
