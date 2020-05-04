@@ -10,6 +10,29 @@ const App = () => (
     <div className="box2">
       <div className="inner-box2">
         <h2>InnerBox2</h2>
+        <div className="inner-box2-items">
+          <div className="inner-box-item">
+            <h3>Box item</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item1</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item2</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item3</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item4</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item5</h3>
+          </div>
+          <div className="inner-box-item">
+            <h3>Box item6</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
