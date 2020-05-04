@@ -12,8 +12,11 @@ describe('Testing images GET Request', () => {
 
   it('Should get images of a product', async (done) => {
     const productImage = [
-      { image_url: 'https://fechr.s3-us-west-1.amazonaws.com/4.jpg', product_id: 2, image_id: 8 },
-      { image_url: 'https://fechr.s3-us-west-1.amazonaws.com/1.jpg', product_id: 2, image_id: 4 },
+      {
+        image_url: 'https://legogallery.s3-us-west-1.amazonaws.com/7.jpg',
+        product_id: 10,
+        image_id: 5,
+      },
     ];
     const response = await request.get(`/api/images/${productImage[0].product_id}`);
 
