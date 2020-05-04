@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const app = require('../server/index.js'); // Link to your server file
+const app = require('../server/server.js'); // Link to your server file
 const db = require('../db/index.js');
 
 const request = supertest(app);
@@ -14,13 +14,17 @@ describe('Testing images GET Request', () => {
     const productImage = [
       { image_url: 'https://fechr.s3-us-west-1.amazonaws.com/4.jpg', product_id: 2, image_id: 8 },
       { image_url: 'https://fechr.s3-us-west-1.amazonaws.com/1.jpg', product_id: 2, image_id: 4 },
-    ];xw
-    const containObj = { image_url: 'https://fechr.s3-us-west-1.amazonaws.com/4.jpg', product_id: 2, image_id: 8 };
-    const response = await request.get('/api/images/2');
+    ];
+    const response = await request.get(`/api/images/${productImage[0].product_id}`);
 
-    expect(response.status).toEqual(200);
+    expect(response.statusCode).toEqual(200);
     expect(response.body).toEqual(productImage);
-    expect(response.body).toContainEqual(containObj);
+    done();
+  });
+
+  it('should respond with a 404 product id does not exist', async (done) => {
+    const response = await request.get('/api/images/null');
+    expect(response.statusCode).toEqual(404);
     done();
   });
 });
