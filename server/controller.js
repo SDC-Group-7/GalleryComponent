@@ -1,7 +1,7 @@
-// const model = require('../db/model.js');
+const model = require('../db/model.js');
 
-// module.exports = {
-//   getImages:  (req, res) => {
-//     model.gettingProduct(res);
-//   },
-// };
+module.exports = {
+  getProductImages: async (req, res) => {
+    await model.getProduct(req.params.id, res);
+  },
+};
