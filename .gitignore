@@ -30,4 +30,4 @@ config.js
 
 
 # AWS_S3 images URL
-AWS_S3_IMAGES.js
+imageData.js

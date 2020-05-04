@@ -9,7 +9,7 @@
   },
   "scripts": {
     "reset-db": "mysql -u root < schema.sql",
-    "seed-db": "node db/seed.js",
+    "seed-db": "node db/seeder/seed.js",
     "react-dev": "webpack -w",
     "start": "nodemon ./server/start.js",
     "test": "jest",
