@@ -55,7 +55,7 @@ export default class App extends Component {
         </div>
       </div>
       <div className="box2">
-        <SideImagesMenu />
+        <SideImagesMenu data={this.state.data}/>
       </div>
 
     </div>
