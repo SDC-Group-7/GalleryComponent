@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 
-
 export default class Slider extends Component {
   constructor(props) {
     super(props);
