@@ -14,7 +14,9 @@ const SideImagesMenu = ({data}) => {
   return (
     <div className="inner-box2">
       <div className="inner-box2-items">
+        <button>ClickTop</button>
         {images}
+        <button>ClickTop</button>
       </div>
     </div>
   );

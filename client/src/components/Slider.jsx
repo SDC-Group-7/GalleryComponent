@@ -31,7 +31,6 @@ export default class Slider extends Component {
     const { currentImgIndx } = this.state;
     const shouldReset = currentImgIndx === lastIndx;
     const index = shouldReset ? 0 : currentImgIndx + 1;
-    console.log('Clicked next')
     this.setState({
       currentImgIndx : index
     })
