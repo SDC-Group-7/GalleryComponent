@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpandArrowsAlt} from '@fortawesome/free-solid-svg-icons';
+
+
 
 export default class Slider extends Component {
   constructor(props) {
@@ -44,10 +48,10 @@ export default class Slider extends Component {
 
     return (
       <div className="container">
-      <button className="btn">
-        Click
-      </button>
-          <img src={imgUrl} className="main-img" />
+        <a className="btn" >
+          <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x"/>
+        </a>
+        <img src={imgUrl} className="main-img" />
         <LeftArrow prevImg={this.prevImg}/>
         <RightArrow nextImg={this.nextImg}/>
     </div>
