@@ -4,9 +4,17 @@ import React, {Component} from 'react';
 export default class Slider extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentImgIndex: 0
+    }
   }
 
+
+
+
   render() {
+    const data = this.props.data;
+
     return (
       <div className="container">
       <button className="btn">
