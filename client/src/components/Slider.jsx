@@ -39,15 +39,17 @@ export default class Slider extends Component {
 
 
   render() {
+    let imgUrl;
+    if (this.props.data.length > 0) {
+      imgUrl = this.props.data[this.state.currentImgIndx].image_url;
+    }
 
     return (
       <div className="container">
       <button className="btn">
         Click
       </button>
-        {this.props.data.length ?
-          <img src={this.props.data[this.state.currentImgIndx].image_url} className="main-img"></img>
-          : <p>Loading</p>}
+          <img src={imgUrl} className="main-img" />
         <LeftArrow prevImg={this.prevImg}/>
         <RightArrow nextImg={this.nextImg}/>
     </div>
