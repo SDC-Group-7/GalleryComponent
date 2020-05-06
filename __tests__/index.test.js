@@ -1,5 +1,5 @@
 const supertest = require('supertest');
-const app = require('../server/server.js'); // Link to your server file
+const app = require('../server/server.js');
 const db = require('../db/index.js');
 
 const request = supertest(app);
