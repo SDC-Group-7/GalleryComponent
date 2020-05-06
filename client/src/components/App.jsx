@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
-import Slider from './Slider.jsx';
-import SideImagesMenu from './SideImagesMenu.jsx';
+import React, { Component } from 'react';
+import Slider from './Slider';
+import SideImagesMenu from './SideImagesMenu';
 import axios from 'axios';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      randomProductId: Math.floor(Math.random() * 100) + 1,
     }
-    this.getProduct = this.getProduct.bind(this);
 
+    this.getProduct = this.getProduct.bind(this);
     this.handleSetter = this.handleSetter.bind(this);
     this.handleError = this.handleError.bind(this);
   }
 
-  // Setter
   handleSetter({data}) {
     this.setState({data})
   }
 
-  // Error handler
   handleError(error) {
     if (error.response) {
       console.log(error.response.status)
@@ -32,7 +31,6 @@ export default class App extends Component {
     }
   }
 
-  // GET request
   async getProduct (id) {
     await axios.get(`/api/images/${id}`)
       .then(this.handleSetter)
@@ -41,8 +39,7 @@ export default class App extends Component {
 
 
   componentDidMount() {
-    // Selecting a random product from 1-100;
-    this.getProduct(Math.floor(Math.random() * 100) + 1);
+    this.getProduct(this.state.randomProductId);
   }
 
 

@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons';
 
 
-const LeftArrow = (props) => {
+const LeftArrow = ({prevImg}) => {
   return (
     <div>
-      <a className="previous" onClick={props.prevImg}><FontAwesomeIcon icon={faChevronCircleLeft} size="2x"/></a>
+      <button className="previous left" onClick={prevImg}>
+        <FontAwesomeIcon icon={faChevronCircleLeft} size="2x"/>
+      </button>
     </div>
   )
 }

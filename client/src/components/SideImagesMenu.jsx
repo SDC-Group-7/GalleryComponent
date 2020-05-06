@@ -1,16 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const SideImagesMenu = ({data}) => {
+const SideImagesMenu = ({ data }) => {
   const images = data.map((img, i) => {
     return (
       <div className="inner-box-item">
-          <img
-            src={img.image_url}
-            className="imgMenuItem"
-          />
-    </div>
-    )
-  })
+        <img src={img.image_url} className="imgMenuItem" alt="product image" />
+      </div>
+    );
+  });
+
   return (
     <div className="inner-box2">
       <div className="inner-box2-items">
