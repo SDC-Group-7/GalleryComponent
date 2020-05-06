@@ -25,4 +25,7 @@ module.exports = {
   devServer: {
     watchContentBase: true,
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".es6"]
+  },
 };
