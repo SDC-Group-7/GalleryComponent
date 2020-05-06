@@ -6,7 +6,7 @@ import {faChevronCircleRight} from '@fortawesome/free-solid-svg-icons';
 const RightArrow = (props) => {
   return (
     <div>
-      <button className="next" onClick={props.nextImg}>
+      <button className="next right" onClick={props.nextImg}>
         <FontAwesomeIcon icon={faChevronCircleRight} size="2x"/>
       </button>
     </div>

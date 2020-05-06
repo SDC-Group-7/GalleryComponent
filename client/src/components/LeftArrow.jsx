@@ -6,7 +6,7 @@ import {faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons';
 const LeftArrow = (props) => {
   return (
     <div>
-      <button className="previous" onClick={props.prevImg}>
+      <button className="previous left" onClick={props.prevImg}>
         <FontAwesomeIcon icon={faChevronCircleLeft} size="2x"/>
       </button>
     </div>
