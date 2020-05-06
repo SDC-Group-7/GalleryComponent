@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Slider from './Slider.jsx';
-import SideImagesMenu from './SideImagesMenu.jsx';
+import Slider from './Slider';
+import SideImagesMenu from './SideImagesMenu';
 import axios from 'axios';
 
 export default class App extends Component {

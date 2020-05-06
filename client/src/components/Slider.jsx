@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import LeftArrow from "./LeftArrow.jsx";
-import RightArrow from "./RightArrow.jsx";
-import ImageZoom from './ImageZoom.jsx';
+import LeftArrow from "./LeftArrow";
+import RightArrow from "./RightArrow";
+import ImageZoom from './ImageZoom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
