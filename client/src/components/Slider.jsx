@@ -48,9 +48,9 @@ export default class Slider extends Component {
 
     return (
       <div className="container">
-        <a className="btn">
+        <button className="btn">
           <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
-        </a>
+        </button>
         <ImageZoom imgURL={imgURL} />
         <LeftArrow prevImg={this.prevImg} />
         <RightArrow nextImg={this.nextImg} />

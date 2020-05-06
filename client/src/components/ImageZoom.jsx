@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   render() {
-    const styling = {
+    const backgroundImageZoom = {
       backgroundPosition: this.state.backgroundPosition,
       backgroundImage: this.state.backgroundImage
     }
@@ -37,7 +37,7 @@ export default class App extends Component {
         {this.state.isOn ?
           <figure
             onMouseMove={(e) => this.handleMoveEffect(e)}
-            style={styling}
+            style={backgroundImageZoom}
             onMouseLeave={this.handleMouseLeave}
             >
           <img src={this.props.imgURL} />

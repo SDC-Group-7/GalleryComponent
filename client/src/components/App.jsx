@@ -8,10 +8,10 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [],
-      randomProductId: Math.floor(Math.random() * 100) + 1
+      randomProductId: Math.floor(Math.random() * 100) + 1,
     }
-    this.getProduct = this.getProduct.bind(this);
 
+    this.getProduct = this.getProduct.bind(this);
     this.handleSetter = this.handleSetter.bind(this);
     this.handleError = this.handleError.bind(this);
   }
