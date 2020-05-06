@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Slider from './Slider';
 import SideImagesMenu from './SideImagesMenu';
 import axios from 'axios';
+import styled from 'styled-components';
+
 
 export default class App extends Component {
   constructor(props) {
