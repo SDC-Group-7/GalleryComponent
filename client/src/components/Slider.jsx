@@ -13,18 +13,10 @@ export default class Slider extends Component {
 
     this.state = {
       currentImgIndx: 0,
-      backgroundPosition:'0% 0%',
     };
 
     this.prevImg = this.prevImg.bind(this);
     this.nextImg = this.nextImg.bind(this);
-    this.handleMove = this.handleMove.bind(this);
-  }
-  handleMove(e) {
-    const { left, top, width, height } = e.target.getBoundingClientRect()
-    const x = (e.pageX - left) / width * 100
-    const y = (e.pageY - top) / height * 100
-    this.setState({ backgroundPosition: `${x}% ${y}%` })
   }
 
   prevImg() {
@@ -52,15 +44,14 @@ export default class Slider extends Component {
     let imgURL;
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
-    }
-    console.log(imgURL)
+    };
 
     return (
       <div className="container">
         <a className="btn">
           <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
         </a>
-        <ImageZoom imgURL={imgURL}/>
+        <ImageZoom imgURL={imgURL} />
         <LeftArrow prevImg={this.prevImg} />
         <RightArrow nextImg={this.nextImg} />
       </div>
