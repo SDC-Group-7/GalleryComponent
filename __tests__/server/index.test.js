@@ -1,6 +1,6 @@
 const supertest = require('supertest');
-const app = require('../server/server.js');
-const db = require('../db/index.js');
+const app = require('../../server/server.js');
+const db = require('../../db/index.js');
 
 const request = supertest(app);
 
