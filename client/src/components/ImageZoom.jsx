@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import styled from "styled-components";
 
 export default class App extends Component {
   constructor(props) {
@@ -35,22 +36,56 @@ export default class App extends Component {
     return (
       <div>
         {this.state.isOn ?
-          <figure
+          <S.ImgCont
             onMouseMove={(e) => this.handleMoveEffect(e)}
             style={backgroundImageZoom}
             onMouseLeave={this.handleMouseLeave}
             >
           <img src={this.props.imgURL} />
-        </figure> :
-          <figure >
+        </S.ImgCont> :
+
+          <S.ImgContainer>
             <img
               src={this.props.imgURL}
-              id="main-img"
               onMouseEnter={this.handleMouseLeave}
               onMouseLeave={this.handleMouseLeave}
             />
-        </figure>}
+        </S.ImgContainer>}
       </div>
     )
   }
 }
+
+
+const S = {};
+
+S.ImgContainer = styled.div`
+  overflow: hidden;
+  cursor: zoom-in;
+
+  img {
+    transition: opacity .8s;
+    display: block;
+    width: 100%;
+    height: 630.688px;
+    width: 695.75px;
+  }
+`;
+
+S.ImgCont = styled.div`
+    overflow: hidden;
+    cursor: zoom-in;
+
+  img {
+    transition: opacity .8s;
+    display: block;
+    width: 100%;
+    height: 630.688px;
+    width: 695.75px;
+
+    &:hover {
+      opacity: 0;
+    }
+  }
+`;
+
