@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 import ImageZoom from './ImageZoom';
-
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -47,14 +46,31 @@ export default class Slider extends Component {
     };
 
     return (
-      <div className="container">
-        <button className="btn">
+      <S.Container>
+        <S.FullScreenBtn>
           <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
-        </button>
+        </S.FullScreenBtn>
+
         <ImageZoom imgURL={imgURL} />
         <LeftArrow prevImg={this.prevImg} />
         <RightArrow nextImg={this.nextImg} />
-      </div>
+      </S.Container>
     );
   }
 }
+
+
+const S = {};
+S.Container = styled.div`
+  position: relative;
+  max-width: 100%;
+`;
+
+S.FullScreenBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+`;
