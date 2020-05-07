@@ -9,7 +9,6 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [],
-      randomProductId: Math.floor(Math.random() * 100) + 1,
     };
 
     this.getProduct = this.getProduct.bind(this);
@@ -40,7 +39,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getProduct(this.state.randomProductId);
+    const randomProductId = Math.floor(Math.random() * 100) + 1;
+    this.getProduct(randomProductId);
   }
 
   render() {

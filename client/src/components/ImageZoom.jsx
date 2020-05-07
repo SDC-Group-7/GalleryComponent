@@ -36,13 +36,13 @@ export default class App extends Component {
     return (
       <div>
         {this.state.isOn ?
-          <S.ImgCont
+          <S.ImageContainer
             onMouseMove={(e) => this.handleMoveEffect(e)}
             style={backgroundImageZoom}
             onMouseLeave={this.handleMouseLeave}
             >
           <img src={this.props.imgURL} />
-        </S.ImgCont> :
+        </S.ImageContainer> :
 
           <S.ImgContainer>
             <img
@@ -72,7 +72,7 @@ S.ImgContainer = styled.div`
   }
 `;
 
-S.ImgCont = styled.div`
+S.ImageContainer = styled.div`
     overflow: hidden;
     cursor: zoom-in;
 
