@@ -4,16 +4,16 @@ import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const LeftArrow = ({ prevImg }) => (
-  <S.PrevBtn onClick={prevImg}>
+  <S.Button onClick={prevImg}>
     <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
-  </S.PrevBtn>
+  </S.Button>
 );
 
 export default LeftArrow;
 
 
 const S = {};
-S.PrevBtn = styled.button`
+S.Button = styled.button`
   position: absolute;
   top: 50%;
   left: 20px;

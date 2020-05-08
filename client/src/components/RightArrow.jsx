@@ -4,16 +4,16 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const RightArrow = ({ nextImg }) => (
-  <S.NextBtn onClick={nextImg}>
+  <S.Button onClick={nextImg}>
     <FontAwesomeIcon icon={faChevronCircleRight} size="2x" />
-  </S.NextBtn>
+  </S.Button>
 );
 
 export default RightArrow;
 
 
 const S = {};
-S.NextBtn = styled.button`
+S.Button = styled.button`
   position: absolute;
   top: 50%;
   right: 20px;

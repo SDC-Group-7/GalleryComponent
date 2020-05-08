@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from './Slider';
-import SideImagesMenu from './SideImagesMenu';
+import SideMenu from './SideMenu';
 import API from '../services/index';
 
 export default class App extends Component {
@@ -21,15 +21,17 @@ export default class App extends Component {
   }
 
   render() {
+    const { data } = this.state;
+
     return (
       <S.MainContainer>
         <S.ImageContainer>
           <S.SliderContainer>
-            <Slider data={this.state.data} />
+            <Slider data={data} />
           </S.SliderContainer>
         </S.ImageContainer>
         <S.SideContainer>
-          <SideImagesMenu data={this.state.data} />
+          <SideMenu data={data} />
         </S.SideContainer>
       </S.MainContainer>
     );

@@ -5,7 +5,8 @@ import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 import ImageZoom from './ImageZoom';
-import FullScreen from './FullScreen';
+import FullScreenBtn from './FullScreenBtn';
+import Modal from './Modal';
 
 export default class Slider extends Component {
   constructor(props) {
@@ -13,10 +14,12 @@ export default class Slider extends Component {
 
     this.state = {
       currentImgIndx: 0,
+      isOpen: false,
     };
 
     this.handlePrevImg = this.handlePrevImg.bind(this);
     this.handleNextImg = this.handleNextImg.bind(this);
+    this.handleToggleScreen = this.handleToggleScreen.bind(this);
   }
 
   handlePrevImg() {
@@ -40,6 +43,11 @@ export default class Slider extends Component {
     });
   }
 
+  handleToggleScreen() {
+    this.setState({ isOpen: !this.state.isOpen });
+    console.log('clicked');
+  }
+
   render() {
     let imgURL;
 
@@ -49,10 +57,18 @@ export default class Slider extends Component {
 
     return (
       <S.Container>
-        <FullScreen />
+        <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
         <ImageZoom imgURL={imgURL} />
         <LeftArrow prevImg={this.handlePrevImg} />
         <RightArrow nextImg={this.handleNextImg} />
+        <Modal
+          isOpen={this.state.isOpen}
+          handleToggleScreen={this.handleToggleScreen}
+          imgURL={imgURL}
+          data={this.props.data}
+          nextImg={this.handleNextImg}
+          prevImg={this.handlePrevImg}
+        />
       </S.Container>
     );
   }

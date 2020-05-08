@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const SideImagesMenu = ({ data }) => {
+const SideMenu = ({ data }) => {
   const images = data.map((img, i) => (
     <S.ImgContainerMapped key={i}>
       <img src={img.image_url} alt="" />
@@ -20,7 +20,7 @@ const SideImagesMenu = ({ data }) => {
   );
 };
 
-export default SideImagesMenu;
+export default SideMenu;
 
 const S = {};
 
