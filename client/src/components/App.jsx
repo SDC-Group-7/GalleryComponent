@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import Slider from "./Slider";
-import SideImagesMenu from "./SideImagesMenu";
-import axios from "axios";
-import styled from "styled-components";
+/* eslint-disable class-methods-use-this */
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Slider from './Slider';
+import SideImagesMenu from './SideImagesMenu';
+import API from '../services/index';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,37 +11,13 @@ export default class App extends Component {
     this.state = {
       data: [],
     };
-
-    this.getProduct = this.getProduct.bind(this);
-    this.handleSetter = this.handleSetter.bind(this);
-    this.handleError = this.handleError.bind(this);
   }
 
-  handleSetter({ data }) {
-    this.setState({ data });
-  }
-
-  handleError(error) {
-    if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
-    } else if (error.request) {
-      console.log(error.request);
-    } else {
-      console.log("Error", error.message);
-    }
-  }
-
-  async getProduct(id) {
-    await axios
-      .get(`/api/images/${id}`)
-      .then(this.handleSetter)
-      .catch(this.handleError);
-  }
-
-  componentDidMount() {
+  async componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
-    this.getProduct(randomProductId);
+    const data = await API.getProduct(randomProductId);
+
+    this.setState({ data });
   }
 
   render() {

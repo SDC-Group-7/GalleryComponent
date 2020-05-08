@@ -43,7 +43,7 @@ export default class Slider extends Component {
     let imgURL;
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
-    };
+    }
 
     return (
       <S.Container>

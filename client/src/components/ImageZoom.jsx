@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,51 +8,61 @@ export default class App extends Component {
       backgroundImage: 'url()',
       backgroundPosition: '0% 0%',
       isOn: false,
-    }
+    };
     this.handleMoveEffect = this.handleMoveEffect.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
-  handleMoveEffect(e){
-    const { left, top, width, height } = e.target.getBoundingClientRect();
-    const x = (e.pageX - left) / width * 100;
-    const y = (e.pageY - top) / height * 100;
+
+  handleMoveEffect(e) {
+    const {
+      left, top, width, height,
+    } = e.target.getBoundingClientRect();
+    const x = (e.pageX - left) / (width * 100);
+    const y = (e.pageY - top) / (height * 100);
 
     this.setState(
-      { backgroundPosition: `${x}% ${y}%`,
-        backgroundImage: `url(${this.props.imgURL})`
-      })
+      {
+        backgroundPosition: `${x}% ${y}%`,
+        backgroundImage: `url(${this.props.imgURL})`,
+      },
+    );
   }
 
   handleMouseLeave() {
-    this.setState({isOn: !this.state.isOn});
+    this.setState({ isOn: !this.state.isOn });
   }
 
   render() {
     const backgroundImageZoom = {
       backgroundPosition: this.state.backgroundPosition,
-      backgroundImage: this.state.backgroundImage
-    }
+      backgroundImage: this.state.backgroundImage,
+    };
 
     return (
       <div>
-        {this.state.isOn ?
-          <S.ImageContainer
-            onMouseMove={(e) => this.handleMoveEffect(e)}
-            style={backgroundImageZoom}
-            onMouseLeave={this.handleMouseLeave}
-            >
-          <img src={this.props.imgURL} />
-        </S.ImageContainer> :
-
-          <S.ImgContainer>
-            <img
-              src={this.props.imgURL}
-              onMouseEnter={this.handleMouseLeave}
+        {this.state.isOn
+          ? (
+            <S.ImageContainer
+              onMouseMove={(e) => this.handleMoveEffect(e)}
+              style={backgroundImageZoom}
               onMouseLeave={this.handleMouseLeave}
-            />
-        </S.ImgContainer>}
+            >
+              <img src={this.props.imgURL} alt="" />
+            </S.ImageContainer>
+          )
+
+          : (
+            <S.ImgContainer>
+              <img
+                src={this.props.imgURL}
+                onMouseEnter={this.handleMouseLeave}
+                onMouseLeave={this.handleMouseLeave}
+                alt=""
+              />
+            </S.ImgContainer>
+          )}
       </div>
-    )
+    );
   }
 }
 
@@ -88,4 +98,3 @@ S.ImageContainer = styled.div`
     }
   }
 `;
-

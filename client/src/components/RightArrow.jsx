@@ -1,20 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronCircleRight} from '@fortawesome/free-solid-svg-icons';
-import styled from "styled-components";
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 
-const RightArrow = ({nextImg}) => {
-  return (
-    <div>
-      <S.NextBtn onClick={nextImg}>
-        <FontAwesomeIcon icon={faChevronCircleRight} size="2x"/>
-      </S.NextBtn>
-    </div>
-  );
-};
+const RightArrow = ({ nextImg }) => (
+  <S.NextBtn onClick={nextImg}>
+    <FontAwesomeIcon icon={faChevronCircleRight} size="2x" />
+  </S.NextBtn>
+);
 
 export default RightArrow;
-
 
 
 const S = {};
