@@ -17,8 +17,8 @@ export default class App extends Component {
     const {
       left, top, width, height,
     } = e.target.getBoundingClientRect();
-    const x = (e.pageX - left) / width * 100;
-    const y = (e.pageY - top) / height * 100;
+    const x = (e.pageX - left) / (width * 100);
+    const y = (e.pageY - top) / (height * 100);
 
     this.setState(
       {
@@ -47,7 +47,7 @@ export default class App extends Component {
               style={backgroundImageZoom}
               onMouseLeave={this.handleMouseLeave}
             >
-              <img src={this.props.imgURL} />
+              <img src={this.props.imgURL} alt="" />
             </S.ImageContainer>
           )
 
@@ -57,6 +57,7 @@ export default class App extends Component {
                 src={this.props.imgURL}
                 onMouseEnter={this.handleMouseLeave}
                 onMouseLeave={this.handleMouseLeave}
+                alt=""
               />
             </S.ImgContainer>
           )}
