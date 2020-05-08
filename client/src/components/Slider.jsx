@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 import ImageZoom from './ImageZoom';
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+import FullScreen from './FullScreen';
 
 export default class Slider extends Component {
   constructor(props) {
@@ -12,7 +13,6 @@ export default class Slider extends Component {
 
     this.state = {
       currentImgIndx: 0,
-      // data: props.data
     };
 
     this.handlePrevImg = this.handlePrevImg.bind(this);
@@ -41,28 +41,18 @@ export default class Slider extends Component {
   }
 
   render() {
-    // console.log(this.state.data, 'data');
-    // //console.log(this.state.data, 'Props data')
-    // console.log(this.props.data, 'props')
-
     let imgURL;
 
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
     }
 
-    // console.log(imgURL, 'Img')
-
-
     return (
       <S.Container>
-        <S.FullScreenBtn>
-          <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
-        </S.FullScreenBtn>
-
+        <FullScreen />
         <ImageZoom imgURL={imgURL} />
-        <LeftArrow prevImg={this.prevImg} />
-        <RightArrow nextImg={this.nextImg} />
+        <LeftArrow prevImg={this.handlePrevImg} />
+        <RightArrow nextImg={this.handleNextImg} />
       </S.Container>
     );
   }

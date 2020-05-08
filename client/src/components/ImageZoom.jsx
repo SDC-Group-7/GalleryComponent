@@ -45,6 +45,7 @@ export default class App extends Component {
             <S.ImageContainer
               onMouseMove={(e) => this.handleMoveEffect(e)}
               style={backgroundImageZoom}
+              onClick={this.handleMouseLeave}
               onMouseLeave={this.handleMouseLeave}
             >
               <img src={this.props.imgURL} alt="" />
@@ -55,8 +56,7 @@ export default class App extends Component {
             <S.ImgContainer>
               <img
                 src={this.props.imgURL}
-                onMouseEnter={this.handleMouseLeave}
-                onMouseLeave={this.handleMouseLeave}
+                onClick={this.handleMouseLeave}
                 alt=""
               />
             </S.ImgContainer>

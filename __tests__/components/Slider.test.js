@@ -9,4 +9,3 @@ describe('Testing RightArrow button  ', () => {
     expect(wrapper.exists()).toBe(true);
   });
 });
-

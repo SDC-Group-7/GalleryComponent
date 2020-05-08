@@ -18,8 +18,6 @@ export default class App extends Component {
     API.getProduct(randomProductId).then((data) => (this.setState({ data }))).catch((err) => {
       console.log(err);
     });
-    // console.log(data);
-    // this.setState({ data });
   }
 
   render() {

@@ -10,12 +10,17 @@ export default class FullScreen extends Component {
     this.state = {
       toggle: false,
     };
+    this.handleToggleScreen = this.handleToggleScreen.bind(this);
   }
 
+  handleToggleScreen() {
+    this.setState({ toggle: !this.state.toggle });
+    console.log('clicked');
+  }
 
   render() {
     return (
-      <S.FullScreenBtn>
+      <S.FullScreenBtn onClick={this.handleToggleScreen} >
         <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
       </S.FullScreenBtn>
     );

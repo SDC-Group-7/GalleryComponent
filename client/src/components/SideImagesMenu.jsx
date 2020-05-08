@@ -1,15 +1,13 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 
 const SideImagesMenu = ({ data }) => {
-  const images = data.map((img, i) => {
-    return (
-      <S.ImgContainerMapped>
-        <img src={img.image_url} alt="" />
-      </S.ImgContainerMapped>
-    );
-  });
+  const images = data.map((img, i) => (
+    <S.ImgContainerMapped key={i}>
+      <img src={img.image_url} alt="" />
+    </S.ImgContainerMapped>
+  ));
 
   return (
     <S.ImageContent>
@@ -41,7 +39,7 @@ S.ImageContent = styled.div`
   margin: 25px 30px;
 `;
 
-S.ImagesItems= styled.div`
+S.ImagesItems = styled.div`
   display:flex;
   flex-direction: column;
   height: 100%;
