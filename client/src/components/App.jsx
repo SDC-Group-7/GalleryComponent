@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import Slider from "./Slider";
-import SideImagesMenu from "./SideImagesMenu";
-import axios from "axios";
-import styled from "styled-components";
+/* eslint-disable class-methods-use-this */
+import React, { Component } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import Slider from './Slider';
+import SideImagesMenu from './SideImagesMenu';
+import apis from '../services/apis';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,40 +12,53 @@ export default class App extends Component {
     this.state = {
       data: [],
     };
-
-    this.getProduct = this.getProduct.bind(this);
-    this.handleSetter = this.handleSetter.bind(this);
-    this.handleError = this.handleError.bind(this);
   }
 
-  handleSetter({ data }) {
+  async componentDidMount() {
+    const randomProductId = Math.floor(Math.random() * 100) + 1;
+    const data = await apis.getProduct(randomProductId);
+
     this.setState({ data });
   }
 
-  handleError(error) {
-    if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
-    } else if (error.request) {
-      console.log(error.request);
-    } else {
-      console.log("Error", error.message);
-    }
-  }
+  // async getProduct(id) {
+  //   await axios
+  //     .get(`/api/images/${id}`)
+  //     .then(this.handleSetter)
+  //     .catch(this.handleError);
+  // }
 
-  async getProduct(id) {
-    await axios
-      .get(`/api/images/${id}`)
-      .then(this.handleSetter)
-      .catch(this.handleError);
-  }
+  // getProduct(id) {
+  //   return new Promise((resolve, reject) => {
+  //     axios.get(`/api/images/${id}`)
+  //       .then(({ status, data }) => {
+  //         if (status === 200) {
+  //           resolve(this.setState({ data }));
+  //         } else {
+  //           reject(new Error('error'));
+  //         }
+  //       });
+  //   });
+  // }
 
-  componentDidMount() {
-    const randomProductId = Math.floor(Math.random() * 100) + 1;
-    this.getProduct(randomProductId);
-  }
+  // handleError(error) {
+  //   if (error.response) {
+  //     console.log(error.response.status);
+  //     console.log(error.response.data);
+  //   } else if (error.request) {
+  //     console.log(error.request);
+  //   } else {
+  //     console.log('Error', error.message);
+  //   }
+  // }
+
+  // handleSetter({ data }) {
+  //   this.setState({ data });
+  // }
+
 
   render() {
+    console.log(this.state.data);
     return (
       <S.MainContainer>
         <S.ImageContainer>

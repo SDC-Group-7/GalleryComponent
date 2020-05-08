@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 import ImageZoom from './ImageZoom';
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default class Slider extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class Slider extends Component {
     let imgURL;
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
-    };
+    }
 
     return (
       <S.Container>

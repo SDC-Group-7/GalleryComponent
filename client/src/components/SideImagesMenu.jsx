@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 
 
-
 const SideImagesMenu = ({ data }) => {
   const images = data.map((img, i) => {
     return (
@@ -24,8 +23,6 @@ const SideImagesMenu = ({ data }) => {
 };
 
 export default SideImagesMenu;
-
-
 
 const S = {};
 
