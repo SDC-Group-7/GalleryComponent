@@ -74,18 +74,8 @@ export default class Slider extends Component {
   }
 }
 
-
 const S = {};
 S.Container = styled.div`
   position: relative;
   max-width: 100%;
-`;
-
-S.FullScreenBtn = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 18px;
-  color: black;
-  cursor: pointer;
 `;
