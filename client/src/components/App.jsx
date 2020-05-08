@@ -13,11 +13,13 @@ export default class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
-    const data = await API.getProduct(randomProductId);
-
-    this.setState({ data });
+    API.getProduct(randomProductId).then((data) => (this.setState({ data }))).catch((err) => {
+      console.log(err);
+    });
+    // console.log(data);
+    // this.setState({ data });
   }
 
   render() {

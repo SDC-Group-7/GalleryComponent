@@ -12,13 +12,14 @@ export default class Slider extends Component {
 
     this.state = {
       currentImgIndx: 0,
+      // data: props.data
     };
 
-    this.prevImg = this.prevImg.bind(this);
-    this.nextImg = this.nextImg.bind(this);
+    this.handlePrevImg = this.handlePrevImg.bind(this);
+    this.handleNextImg = this.handleNextImg.bind(this);
   }
 
-  prevImg() {
+  handlePrevImg() {
     const lastIndx = this.props.data.length - 1;
     const { currentImgIndx } = this.state;
     const shouldReset = currentImgIndx === 0;
@@ -29,7 +30,7 @@ export default class Slider extends Component {
     });
   }
 
-  nextImg() {
+  handleNextImg() {
     const lastIndx = this.props.data.length - 1;
     const { currentImgIndx } = this.state;
     const shouldReset = currentImgIndx === lastIndx;
@@ -40,10 +41,18 @@ export default class Slider extends Component {
   }
 
   render() {
+    // console.log(this.state.data, 'data');
+    // //console.log(this.state.data, 'Props data')
+    // console.log(this.props.data, 'props')
+
     let imgURL;
+
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
     }
+
+    // console.log(imgURL, 'Img')
+
 
     return (
       <S.Container>

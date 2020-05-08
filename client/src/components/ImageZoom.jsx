@@ -17,8 +17,8 @@ export default class App extends Component {
     const {
       left, top, width, height,
     } = e.target.getBoundingClientRect();
-    const x = (e.pageX - left) / (width * 100);
-    const y = (e.pageY - top) / (height * 100);
+    const x = (e.pageX - left) / width * 100;
+    const y = (e.pageY - top) / height * 100;
 
     this.setState(
       {
