@@ -10,7 +10,10 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [],
+      currentImgIndx: 0,
     };
+    this.handlePrevImg = this.handlePrevImg.bind(this);
+    this.handleNextImg = this.handleNextImg.bind(this);
   }
 
   componentDidMount() {
@@ -20,13 +23,43 @@ export default class App extends Component {
     });
   }
 
+  handlePrevImg() {
+    const { data, currentImgIndx } = this.state;
+    const lastIndx = data.length - 1;
+    const shouldReset = currentImgIndx === 0;
+    const index = shouldReset ? lastIndx : currentImgIndx - 1;
+
+    this.setState({ currentImgIndx: index });
+  }
+
+
+  handleNextImg() {
+    const { data, currentImgIndx } = this.state;
+    const lastIndx = data.length - 1;
+    const shouldReset = currentImgIndx === lastIndx;
+    const index = shouldReset ? 0 : currentImgIndx + 1;
+
+    this.setState({ currentImgIndx: index });
+  }
+
+
   render() {
     const { data } = this.state;
+    if (this.state.data.length > 0) {
+      var imgURL = this.state.data[this.state.currentImgIndx].image_url;
+    }
+
     return (
+
       <S.AppContainer>
         <S.MainPhoto>
           <S.SliderContainer>
-            <Slider data={data} />
+            <Slider
+              data={data}
+              handlePrevImg={this.handlePrevImg}
+              handleNextImg={this.handleNextImg}
+              imgURL={imgURL}
+            />
           </S.SliderContainer>
         </S.MainPhoto>
         <S.SideContainer>

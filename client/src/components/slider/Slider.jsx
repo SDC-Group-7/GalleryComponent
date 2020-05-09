@@ -11,34 +11,9 @@ export default class Slider extends Component {
     super(props);
 
     this.state = {
-      currentImgIndx: 0,
       isOpen: false,
     };
-
-    this.handlePrevImg = this.handlePrevImg.bind(this);
-    this.handleNextImg = this.handleNextImg.bind(this);
     this.handleToggleScreen = this.handleToggleScreen.bind(this);
-  }
-
-  handlePrevImg() {
-    const lastIndx = this.props.data.length - 1;
-    const { currentImgIndx } = this.state;
-    const shouldReset = currentImgIndx === 0;
-    const index = shouldReset ? lastIndx : currentImgIndx - 1;
-
-    this.setState({
-      currentImgIndx: index,
-    });
-  }
-
-  handleNextImg() {
-    const lastIndx = this.props.data.length - 1;
-    const { currentImgIndx } = this.state;
-    const shouldReset = currentImgIndx === lastIndx;
-    const index = shouldReset ? 0 : currentImgIndx + 1;
-    this.setState({
-      currentImgIndx: index,
-    });
   }
 
   handleToggleScreen() {
@@ -46,24 +21,19 @@ export default class Slider extends Component {
   }
 
   render() {
-    let imgURL;
-    if (this.props.data.length > 0) {
-      imgURL = this.props.data[this.state.currentImgIndx].image_url;
-    }
-
     return (
       <S.Container>
         <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
-        <MainImage imgURL={imgURL} />
-        <LeftArrowBtn prevImg={this.handlePrevImg} />
-        <RightArrowBtn nextImg={this.handleNextImg} />
+        <MainImage imgURL={this.props.imgURL} />
+        <LeftArrowBtn handlePrevImg={this.props.handlePrevImg} />
+        <RightArrowBtn handleNextImg={this.props.handleNextImg} />
         <Modal
           isOpen={this.state.isOpen}
           handleToggleScreen={this.handleToggleScreen}
-          imgURL={imgURL}
+          imgURL={this.props.imgURL}
           data={this.props.data}
-          nextImg={this.handleNextImg}
-          prevImg={this.handlePrevImg}
+          handleNextImg={this.props.handleNextImg}
+          handlePrevImg={this.props.handlePrevImg}
         />
       </S.Container>
     );
