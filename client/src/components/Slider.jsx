@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
-import ImageZoom from './ImageZoom';
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import LeftArrowBtn from './LeftArrowBtn';
+import RightArrowBtn from './RightArrowBtn';
+import Image from './Image';
+import FullScreenBtn from './FullScreenBtn';
+import Modal from './Modal';
 
 export default class Slider extends Component {
   constructor(props) {
@@ -12,13 +12,15 @@ export default class Slider extends Component {
 
     this.state = {
       currentImgIndx: 0,
+      isOpen: false,
     };
 
-    this.prevImg = this.prevImg.bind(this);
-    this.nextImg = this.nextImg.bind(this);
+    this.handlePrevImg = this.handlePrevImg.bind(this);
+    this.handleNextImg = this.handleNextImg.bind(this);
+    this.handleToggleScreen = this.handleToggleScreen.bind(this);
   }
 
-  prevImg() {
+  handlePrevImg() {
     const lastIndx = this.props.data.length - 1;
     const { currentImgIndx } = this.state;
     const shouldReset = currentImgIndx === 0;
@@ -29,7 +31,7 @@ export default class Slider extends Component {
     });
   }
 
-  nextImg() {
+  handleNextImg() {
     const lastIndx = this.props.data.length - 1;
     const { currentImgIndx } = this.state;
     const shouldReset = currentImgIndx === lastIndx;
@@ -37,6 +39,10 @@ export default class Slider extends Component {
     this.setState({
       currentImgIndx: index,
     });
+  }
+
+  handleToggleScreen() {
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
   render() {
@@ -47,30 +53,25 @@ export default class Slider extends Component {
 
     return (
       <S.Container>
-        <S.FullScreenBtn>
-          <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
-        </S.FullScreenBtn>
-
-        <ImageZoom imgURL={imgURL} />
-        <LeftArrow prevImg={this.prevImg} />
-        <RightArrow nextImg={this.nextImg} />
+        <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
+        <Image imgURL={imgURL} />
+        <LeftArrowBtn prevImg={this.handlePrevImg} />
+        <RightArrowBtn nextImg={this.handleNextImg} />
+        <Modal
+          isOpen={this.state.isOpen}
+          handleToggleScreen={this.handleToggleScreen}
+          imgURL={imgURL}
+          data={this.props.data}
+          nextImg={this.handleNextImg}
+          prevImg={this.handlePrevImg}
+        />
       </S.Container>
     );
   }
 }
 
-
 const S = {};
 S.Container = styled.div`
   position: relative;
   max-width: 100%;
-`;
-
-S.FullScreenBtn = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 18px;
-  color: black;
-  cursor: pointer;
 `;

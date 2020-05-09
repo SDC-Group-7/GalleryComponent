@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class App extends Component {
+export default class Image extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,8 +17,8 @@ export default class App extends Component {
     const {
       left, top, width, height,
     } = e.target.getBoundingClientRect();
-    const x = (e.pageX - left) / (width * 100);
-    const y = (e.pageY - top) / (height * 100);
+    const x = (e.pageX - left) / width * 100;
+    const y = (e.pageY - top) / height * 100;
 
     this.setState(
       {
@@ -45,6 +45,7 @@ export default class App extends Component {
             <S.ImageContainer
               onMouseMove={(e) => this.handleMoveEffect(e)}
               style={backgroundImageZoom}
+              onClick={this.handleMouseLeave}
               onMouseLeave={this.handleMouseLeave}
             >
               <img src={this.props.imgURL} alt="" />
@@ -55,8 +56,7 @@ export default class App extends Component {
             <S.ImgContainer>
               <img
                 src={this.props.imgURL}
-                onMouseEnter={this.handleMouseLeave}
-                onMouseLeave={this.handleMouseLeave}
+                onClick={this.handleMouseLeave}
                 alt=""
               />
             </S.ImgContainer>
@@ -68,7 +68,6 @@ export default class App extends Component {
 
 
 const S = {};
-
 S.ImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;

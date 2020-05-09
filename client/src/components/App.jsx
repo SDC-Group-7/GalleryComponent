@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from './Slider';
-import SideImagesMenu from './SideImagesMenu';
+import SideMenu from './SideMenu';
 import API from '../services/index';
 
 export default class App extends Component {
@@ -13,31 +13,32 @@ export default class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
-    const data = await API.getProduct(randomProductId);
-
-    this.setState({ data });
+    API.getProduct(randomProductId).then((data) => (this.setState({ data }))).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
+    const { data } = this.state;
     return (
-      <S.MainContainer>
-        <S.ImageContainer>
+      <S.AppContainer>
+        <S.PhotosContainer>
           <S.SliderContainer>
-            <Slider data={this.state.data} />
+            <Slider data={data} />
           </S.SliderContainer>
-        </S.ImageContainer>
+        </S.PhotosContainer>
         <S.SideContainer>
-          <SideImagesMenu data={this.state.data} />
+          <SideMenu data={data} />
         </S.SideContainer>
-      </S.MainContainer>
+      </S.AppContainer>
     );
   }
 }
 
 const S = {};
-S.MainContainer = styled.div`
+S.AppContainer = styled.div`
   width: 100vh;
   height: 70vh;
   display: grid;
@@ -46,7 +47,7 @@ S.MainContainer = styled.div`
   padding: 10px;
 `;
 
-S.ImageContainer = styled.div`
+S.PhotosContainer = styled.div`
   background: #f8f8f8;
   grid-column: 2/3;
   grid-row: 1/3;

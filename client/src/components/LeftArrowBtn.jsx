@@ -1,22 +1,21 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
-const RightArrow = ({ nextImg }) => (
-  <S.NextBtn onClick={nextImg}>
-    <FontAwesomeIcon icon={faChevronCircleRight} size="2x" />
-  </S.NextBtn>
+const LeftArrowBtn = ({ prevImg }) => (
+  <S.Button onClick={prevImg}>
+    <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
+  </S.Button>
 );
 
-export default RightArrow;
-
+export default LeftArrowBtn;
 
 const S = {};
-S.NextBtn = styled.button`
+S.Button = styled.button`
   position: absolute;
   top: 50%;
-  right: 20px;
+  left: 20px;
   font-size: 18px;
   color: rgb(91, 88, 88);
   cursor: pointer;
