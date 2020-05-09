@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Slider from './Slider';
-import SideMenu from './SideMenu';
+import Slider from './slider/Slider';
+import SideMenu from './side-menu/SideMenu';
 import API from '../services/index';
 
 export default class App extends Component {
@@ -24,11 +24,11 @@ export default class App extends Component {
     const { data } = this.state;
     return (
       <S.AppContainer>
-        <S.PhotosContainer>
+        <S.MainPhoto>
           <S.SliderContainer>
             <Slider data={data} />
           </S.SliderContainer>
-        </S.PhotosContainer>
+        </S.MainPhoto>
         <S.SideContainer>
           <SideMenu data={data} />
         </S.SideContainer>
@@ -47,7 +47,7 @@ S.AppContainer = styled.div`
   padding: 10px;
 `;
 
-S.PhotosContainer = styled.div`
+S.MainPhoto = styled.div`
   background: #f8f8f8;
   grid-column: 2/3;
   grid-row: 1/3;

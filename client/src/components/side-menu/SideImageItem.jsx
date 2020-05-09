@@ -8,7 +8,7 @@ const SideImageItem = ({ img }) => (
 );
 
 const S = {};
-S.PhotoContainer = styled.figure`
+S.PhotoContainer = styled.div`
   padding: 10px 0 10px 0 ;
 img {
   height: 60px;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SideImageItem from './SideImageItem';
 
-const SideImageList = ({data}) => (
+const SideImageList = ({ data }) => (
   <S.ListContainer>
     {data.map((img, i) => (
       <SideImageItem

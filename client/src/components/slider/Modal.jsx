@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import FullScreenBtn from './FullScreenBtn';
-import SideMenu from './SideMenu';
+import SideMenu from '../side-menu/SideMenu';
 
 const Modal = ({
   imgURL, isOpen, handleToggleScreen, data,

@@ -7,20 +7,19 @@ import SideImageList from './SideImageList';
 export default class SideMenu extends Component {
   constructor(props) {
     super(props);
-    this.scrollImgRef = createRef();
+    this.imgRef = createRef();
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
     console.log('Clicked');
-    console.log(this.scrollImgRef);
+    console.log(this.imgRef);
 
-    this.scrollImgRef.current.focus();
+    // this.scrollImgRef.current.focus();
 
-    // this.scrollImgRef.current.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'start',
-    // });
+    this.imgRef.current.scrollIntoView({
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -28,7 +27,7 @@ export default class SideMenu extends Component {
       <S.ImageContent>
         <S.ImagesItems>
           <TopArrowBtn handleScroll={this.handleScroll} />
-          <SideImageList data={this.props.data} scrollImgRef={this.scrollImgRef} />
+          <SideImageList data={this.props.data} ref={this.imgRef} />
           <BottomArrowBtn handleScroll={this.handleScroll} />
         </S.ImagesItems>
       </S.ImageContent>
