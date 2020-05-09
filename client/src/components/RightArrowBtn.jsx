@@ -11,7 +11,6 @@ const RightArrowBtn = ({ nextImg }) => (
 
 export default RightArrowBtn;
 
-
 const S = {};
 S.Button = styled.button`
   position: absolute;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class App extends Component {
+export default class Image extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +68,6 @@ export default class App extends Component {
 
 
 const S = {};
-
 S.ImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;

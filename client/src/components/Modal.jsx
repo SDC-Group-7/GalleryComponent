@@ -25,22 +25,22 @@ export default Modal;
 
 const S = {};
 S.BackgroundContainer = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    display:flex;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
 `;
 
 S.ModalContainer = styled.div`
-  background:#fff;
-  margin:50px auto;
+  background: #fff;
+  margin: 50px auto;
 
   img {
-    transition: opacity .8s;
+    transition: opacity 0.8s;
     display: block;
     width: 100%;
     height: 700px;
