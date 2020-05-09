@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const SideMenu = ({ data }) => {
   const images = data.map((img, i) => (
     <S.ImgContainerMapped key={i}>

@@ -12,7 +12,7 @@
     "seed-db": "node db/seeder/seed.js",
     "react-dev": "webpack -w",
     "start": "nodemon ./server/start.js",
-    "test": "jest",
+    "test": "jest --verbose",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
@@ -24,16 +24,16 @@
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
     "babel-jest": "^25.5.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",

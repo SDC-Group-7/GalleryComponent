@@ -1,10 +1,12 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import FullScreenBtn from './FullScreenBtn';
 import SideMenu from './SideMenu';
 
-const Modal = ({imgURL, isOpen, handleToggleScreen, data}) => {
+const Modal = ({
+  imgURL, isOpen, handleToggleScreen, data,
+}) => {
   if (!isOpen) {
     return null;
   }

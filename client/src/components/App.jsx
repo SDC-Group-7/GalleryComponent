@@ -22,24 +22,23 @@ export default class App extends Component {
 
   render() {
     const { data } = this.state;
-
     return (
-      <S.MainContainer>
-        <S.ImageContainer>
+      <S.AppContainer>
+        <S.PhotosContainer>
           <S.SliderContainer>
             <Slider data={data} />
           </S.SliderContainer>
-        </S.ImageContainer>
+        </S.PhotosContainer>
         <S.SideContainer>
           <SideMenu data={data} />
         </S.SideContainer>
-      </S.MainContainer>
+      </S.AppContainer>
     );
   }
 }
 
 const S = {};
-S.MainContainer = styled.div`
+S.AppContainer = styled.div`
   width: 100vh;
   height: 70vh;
   display: grid;
@@ -48,7 +47,7 @@ S.MainContainer = styled.div`
   padding: 10px;
 `;
 
-S.ImageContainer = styled.div`
+S.PhotosContainer = styled.div`
   background: #f8f8f8;
   grid-column: 2/3;
   grid-row: 1/3;

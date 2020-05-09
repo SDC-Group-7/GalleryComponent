@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
-import LeftArrow from './LeftArrow';
-import RightArrow from './RightArrow';
+import LeftArrowBtn from './LeftArrowBtn';
+import RightArrowBtn from './RightArrowBtn';
 import ImageZoom from './ImageZoom';
 import FullScreenBtn from './FullScreenBtn';
 import Modal from './Modal';
@@ -44,13 +42,11 @@ export default class Slider extends Component {
   }
 
   handleToggleScreen() {
-    this.setState({ isOpen: !this.state.isOpen });
-    console.log('clicked');
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
   render() {
     let imgURL;
-
     if (this.props.data.length > 0) {
       imgURL = this.props.data[this.state.currentImgIndx].image_url;
     }
@@ -59,8 +55,8 @@ export default class Slider extends Component {
       <S.Container>
         <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
         <ImageZoom imgURL={imgURL} />
-        <LeftArrow prevImg={this.handlePrevImg} />
-        <RightArrow nextImg={this.handleNextImg} />
+        <LeftArrowBtn prevImg={this.handlePrevImg} />
+        <RightArrowBtn nextImg={this.handleNextImg} />
         <Modal
           isOpen={this.state.isOpen}
           handleToggleScreen={this.handleToggleScreen}
