@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class Image extends Component {
+export default class MainImage extends Component {
   constructor(props) {
     super(props);
     this.state = {

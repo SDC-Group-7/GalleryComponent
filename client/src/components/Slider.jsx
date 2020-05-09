@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import LeftArrowBtn from './LeftArrowBtn';
 import RightArrowBtn from './RightArrowBtn';
-import Image from './Image';
+import MainImage from './MainImage';
 import FullScreenBtn from './FullScreenBtn';
 import Modal from './Modal';
 
@@ -54,7 +54,7 @@ export default class Slider extends Component {
     return (
       <S.Container>
         <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
-        <Image imgURL={imgURL} />
+        <MainImage imgURL={imgURL} />
         <LeftArrowBtn prevImg={this.handlePrevImg} />
         <RightArrowBtn nextImg={this.handleNextImg} />
         <Modal

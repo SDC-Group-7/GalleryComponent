@@ -1,39 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import topArrowBtn from './TopMenuBtn';
-import bottomArrowBtn from './bottomMenuBtn';
+import React from "react";
+import styled from "styled-components";
+import TopArrowBtn from "./TopArrowBtn";
+import BottomArrowBtn from "./BottomArrowBtn";
+import SideImageItem from "./SideImageItem";
 
-const SideMenu = ({ data }) => {
-  const images = data.map((img, i) => (
-    <S.ImgContainerMapped key={i}>
-      <img src={img.image_url} alt="" />
-    </S.ImgContainerMapped>
-  ));
-
-  return (
-    <S.ImageContent>
-      <S.ImagesItems>
-        <topArrowBtn />
-        {images}
-        <bottomArrowBtn />
-      </S.ImagesItems>
-    </S.ImageContent>
-  );
-};
+const SideMenu = ({ data }) => (
+  <S.ImageContent>
+    <S.ImagesItems>
+      <TopArrowBtn />
+      <SideImageItem data={data} />
+      <BottomArrowBtn />
+    </S.ImagesItems>
+  </S.ImageContent>
+);
 
 export default SideMenu;
-
 const S = {};
-
-S.ImgContainerMapped = styled.div`
-  padding: 10px 0 10px 0;
-
-  img {
-    height: 60px;
-    width: 100px;
-  }
-`;
-
 S.ImageContent = styled.div`
   grid-column: 1/2;
   grid-row: 1/2;
@@ -41,8 +23,6 @@ S.ImageContent = styled.div`
 `;
 
 S.ImagesItems = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
-  height: 100%;
-  width:100%;
 `;

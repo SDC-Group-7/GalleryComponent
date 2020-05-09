@@ -1,7 +1,7 @@
 import React from 'react';
 
-const topArrowBtn = () => (
+const TopArrowBtn = () => (
   <button type="button">Botton</button>
 );
 
-export default topArrowBtn;
+export default TopArrowBtn;
