@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import topArrowBtn from './TopMenuBtn';
+import bottomArrowBtn from './bottomMenuBtn';
 
 const SideMenu = ({ data }) => {
   const images = data.map((img, i) => (
@@ -11,9 +13,9 @@ const SideMenu = ({ data }) => {
   return (
     <S.ImageContent>
       <S.ImagesItems>
-        <button>ClickTop</button>
+        <topArrowBtn />
         {images}
-        <button>ClickTop</button>
+        <bottomArrowBtn />
       </S.ImagesItems>
     </S.ImageContent>
   );
