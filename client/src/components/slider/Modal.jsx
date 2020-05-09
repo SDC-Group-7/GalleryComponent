@@ -12,7 +12,6 @@ const Modal = ({
   }
   return (
     <S.BackgroundContainer>
-      <SideMenu data={data} />
       <FullScreenBtn handleToggleScreen={handleToggleScreen} />
       <S.ModalContainer>
         <img src={imgURL} alt="" />

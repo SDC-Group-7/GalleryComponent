@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import TopArrowBtn from './TopArrowBtn';
 import BottomArrowBtn from './BottomArrowBtn';
@@ -7,28 +7,30 @@ import SideImageList from './SideImageList';
 export default class SideMenu extends Component {
   constructor(props) {
     super(props);
-    this.imgRef = createRef();
-    this.handleScroll = this.handleScroll.bind(this);
+    this.imgRef = React.createRef();
+    this.handleScrollUp = this.handleScrollUp.bind(this);
+    this.handleScrollDown = this.handleScrollDown.bind(this);
   }
 
-  handleScroll() {
-    console.log('Clicked');
-    console.log(this.imgRef);
+  handleClickUp() {
+    const indx = this.props.currentImgIndx;
+    this.imgRef.current.children[indx];
+    this.props.handlePrevImg();
+  }
 
-    // this.scrollImgRef.current.focus();
-
-    this.imgRef.current.scrollIntoView({
-      behavior: 'smooth',
-    });
+  handleClickDown() {
+    const indx = this.props.currentImgIndx;
+    this.imgRef.current.children[indx];
+    this.props.handleNextImg();
   }
 
   render() {
     return (
       <S.ImageContent>
         <S.ImagesItems>
-          <TopArrowBtn handleScroll={this.handleScroll} />
+          <TopArrowBtn handleClickUp={this.handleClickUp} />
           <SideImageList data={this.props.data} ref={this.imgRef} />
-          <BottomArrowBtn handleScroll={this.handleScroll} />
+          <BottomArrowBtn handleClickDown={this.handleClickDown} />
         </S.ImagesItems>
       </S.ImageContent>
     );
@@ -44,4 +46,5 @@ S.ImageContent = styled.div`
 S.ImagesItems = styled.div`
   display: flex;
   flex-direction: column;
+  height: 600px;
 `;

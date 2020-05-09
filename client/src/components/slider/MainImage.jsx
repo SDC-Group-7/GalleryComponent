@@ -20,10 +20,11 @@ export default class MainImage extends Component {
     const x = (e.pageX - left) / width * 100;
     const y = (e.pageY - top) / height * 100;
 
+    const { imgURL } = this.props;
     this.setState(
       {
         backgroundPosition: `${x}% ${y}%`,
-        backgroundImage: `url(${this.props.imgURL})`,
+        backgroundImage: `url(${imgURL})`,
       },
     );
   }
@@ -38,6 +39,7 @@ export default class MainImage extends Component {
       backgroundImage: this.state.backgroundImage,
     };
 
+    const { imgURL } = this.props;
     return (
       <div>
         {this.state.isOn
@@ -48,15 +50,14 @@ export default class MainImage extends Component {
               onClick={this.handleMouseLeave}
               onMouseLeave={this.handleMouseLeave}
             >
-              <img src={this.props.imgURL} alt="" />
+              <img src={imgURL} alt="" />
             </S.ImageContainer>
           )
 
           : (
-            <S.ImgContainer>
+            <S.ImgContainer onClick={this.handleMouseLeave}>
               <img
-                src={this.props.imgURL}
-                onClick={this.handleMouseLeave}
+                src={imgURL}
                 alt=""
               />
             </S.ImgContainer>

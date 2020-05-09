@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TopArrowBtn = ({ handleScroll }) => (
-  <button type="button" onClick={handleScroll}>Top</button>
+const TopArrowBtn = ({ handleClickUp }) => (
+  <button type="button" onClick={handleClickUp}>Top</button>
 );
 
 export default TopArrowBtn;

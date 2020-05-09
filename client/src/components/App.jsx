@@ -59,11 +59,17 @@ export default class App extends Component {
               handlePrevImg={this.handlePrevImg}
               handleNextImg={this.handleNextImg}
               imgURL={imgURL}
+              currentImgIndx={this.state.currentImgIndx}
             />
           </S.SliderContainer>
         </S.MainPhoto>
         <S.SideContainer>
-          <SideMenu data={data} />
+          <SideMenu
+            data={data}
+            handlePrevImg={this.handlePrevImg}
+            handleNextImg={this.handleNextImg}
+            currentImgIndx={this.state.currentImgIndx}
+          />
         </S.SideContainer>
       </S.AppContainer>
     );

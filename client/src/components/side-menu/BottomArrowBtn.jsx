@@ -1,7 +1,7 @@
 import React from 'react';
 
-const BottomArrowBtn = () => (
-  <button type="button">Bottom</button>
+const BottomArrowBtn = ({handleClickDown}) => (
+  <button type="button" onClick={handleClickDown}> Bottom</button>
 );
 
 export default BottomArrowBtn;

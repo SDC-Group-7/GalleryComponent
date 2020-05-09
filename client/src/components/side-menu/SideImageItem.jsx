@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const SideImageItem = ({ img }) => (
   <S.PhotoContainer>
     <img src={img} alt="" />
@@ -9,10 +10,13 @@ const SideImageItem = ({ img }) => (
 
 const S = {};
 S.PhotoContainer = styled.div`
-  padding: 10px 0 10px 0 ;
+  height: 120px;
 img {
-  height: 60px;
-  width: 100px;
+  height: 100px;
+  width: 100%;
+  display: block;
+  position:relative;
+  padding: 10px 45px 10px 0;
 }
 `;
 

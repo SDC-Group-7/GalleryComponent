@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import SideImageItem from './SideImageItem';
 
-const SideImageList = ({ data }) => (
-  <S.ListContainer>
-    {data.map((img, i) => (
+const SideImageList = forwardRef((props, ref) => (
+  <S.ListContainer ref={ref}>
+    {props.data.map((img, i) => (
       <SideImageItem
         img={img.image_url}
         key={i}
       />
     ))}
   </S.ListContainer>
-);
+));
 
 export default SideImageList;
 
 const S = {};
 S.ListContainer = styled.div`
-  padding: 10px 0 10px 40px;
-  height: 550px;
+  padding: 40px 0 40px 40px;
+  position: relative;
+  overflow: auto;
 `;
