@@ -1,20 +1,40 @@
-import React from "react";
-import styled from "styled-components";
-import TopArrowBtn from "./TopArrowBtn";
-import BottomArrowBtn from "./BottomArrowBtn";
-import SideImageItem from "./SideImageItem";
+import React, { Component, createRef } from 'react';
+import styled from 'styled-components';
+import TopArrowBtn from './TopArrowBtn';
+import BottomArrowBtn from './BottomArrowBtn';
+import SideImageList from './SideImageList';
 
-const SideMenu = ({ data }) => (
-  <S.ImageContent>
-    <S.ImagesItems>
-      <TopArrowBtn />
-      <SideImageItem data={data} />
-      <BottomArrowBtn />
-    </S.ImagesItems>
-  </S.ImageContent>
-);
+export default class SideMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollImgRef = createRef();
+    this.handleScroll = this.handleScroll.bind(this);
+  }
 
-export default SideMenu;
+  handleScroll() {
+    console.log('Clicked');
+    console.log(this.scrollImgRef);
+
+    this.scrollImgRef.current.focus();
+
+    // this.scrollImgRef.current.scrollIntoView({
+    //   behavior: 'smooth',
+    //   block: 'start',
+    // });
+  }
+
+  render() {
+    return (
+      <S.ImageContent>
+        <S.ImagesItems>
+          <TopArrowBtn handleScroll={this.handleScroll} />
+          <SideImageList data={this.props.data} scrollImgRef={this.scrollImgRef} />
+          <BottomArrowBtn handleScroll={this.handleScroll} />
+        </S.ImagesItems>
+      </S.ImageContent>
+    );
+  }
+}
 const S = {};
 S.ImageContent = styled.div`
   grid-column: 1/2;
