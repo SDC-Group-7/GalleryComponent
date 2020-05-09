@@ -6,7 +6,6 @@ async function getProduct(id) {
     const response = await axios.get(`api/images/${id}`);
     return response.data;
   } catch (error) {
-    console.log('Error');
     return console.log(error);
   }
 }
