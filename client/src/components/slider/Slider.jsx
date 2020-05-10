@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import LeftArrowBtn from './LeftArrowBtn';
 import RightArrowBtn from './RightArrowBtn';
 import MainImage from './MainImage';
@@ -21,19 +22,21 @@ export default class Slider extends Component {
   }
 
   render() {
+    const { imgURL, handlePrevImg, handleNextImg } = this.props;
+    const { isOpen } = this.state;
+
     return (
       <S.Container>
         <FullScreenBtn handleToggleScreen={this.handleToggleScreen} />
-        <MainImage imgURL={this.props.imgURL} />
-        <LeftArrowBtn handlePrevImg={this.props.handlePrevImg} />
-        <RightArrowBtn handleNextImg={this.props.handleNextImg} />
+        <MainImage imgURL={imgURL} />
+        <LeftArrowBtn handlePrevImg={handlePrevImg} />
+        <RightArrowBtn handleNextImg={handleNextImg} />
         <Modal
-          isOpen={this.state.isOpen}
+          isOpen={isOpen}
           handleToggleScreen={this.handleToggleScreen}
-          imgURL={this.props.imgURL}
-          data={this.props.data}
-          handleNextImg={this.props.handleNextImg}
-          handlePrevImg={this.props.handlePrevImg}
+          imgURL={imgURL}
+          handleNextImg={handleNextImg}
+          handlePrevImg={handlePrevImg}
         />
       </S.Container>
     );
@@ -41,7 +44,20 @@ export default class Slider extends Component {
 }
 
 const S = {};
+
 S.Container = styled.div`
   position: relative;
   max-width: 100%;
 `;
+
+Slider.propTypes = {
+  imgURL: PropTypes.string,
+  handlePrevImg: PropTypes.func,
+  handleNextImg: PropTypes.func,
+};
+
+Slider.defaultProps = {
+  imgURL: '',
+  handlePrevImg: () => {},
+  handleNextImg: () => {},
+};

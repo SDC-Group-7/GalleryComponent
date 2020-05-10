@@ -2,17 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const BottomArrowBtn = ({handleClickDown}) => (
+const BottomArrowBtn = ({ handleClickDown }) => (
   <S.Button type="button" onClick={handleClickDown}>
     <FontAwesomeIcon icon={faChevronDown} size="2x" />
   </S.Button>
 );
 
-export default BottomArrowBtn;
-
-
 const S = {};
+
 S.Button = styled.button`
   bottom: 100%;
   left: 130px;
@@ -23,3 +22,12 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
 `;
+
+BottomArrowBtn.propTypes = {
+  handleClickDown: PropTypes.func,
+};
+BottomArrowBtn.defaultProps = {
+  handleClickDown: () => {},
+};
+
+export default BottomArrowBtn;

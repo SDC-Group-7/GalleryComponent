@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import TopArrowBtn from './TopArrowBtn';
 import BottomArrowBtn from './BottomArrowBtn';
 import SideImageList from './SideImageList';
@@ -13,15 +14,16 @@ export default class SideMenu extends Component {
   }
 
   handleClickUp() {
-    const indx = this.props.currentImgIndx;
-    this.imgRef.current.children[indx];
-    this.props.handlePrevImg();
+    const { currentImgIndx, handlePrevImg } = this.props;
+    handlePrevImg();
+
+    // this.imgRef.current.children[currentImgIndx];
   }
 
   handleClickDown() {
-    const indx = this.props.currentImgIndx;
-    this.imgRef.current.children[indx];
-    this.props.handleNextImg();
+    const { currentImgIndx, handleNextImg } = this.props;
+    handleNextImg();
+    // this.imgRef.current.children[indx];
   }
 
   render() {
@@ -36,7 +38,9 @@ export default class SideMenu extends Component {
     );
   }
 }
+
 const S = {};
+
 S.ImageContent = styled.div`
   grid-column: 1/2;
   grid-row: 1/2;
@@ -48,3 +52,16 @@ S.ImagesItems = styled.div`
   flex-direction: column;
   height: 600px;
 `;
+
+SideMenu.propTypes = {
+  currentImgIndx: PropTypes.number,
+  handlePrevImg: PropTypes.func,
+  handleNextImg: PropTypes.func,
+  data: PropTypes.array,
+};
+SideMenu.defaultProps = {
+  currentImgIndx: 0,
+  handlePrevImg: () => {},
+  handleNextImg: () => {},
+  data: [],
+};

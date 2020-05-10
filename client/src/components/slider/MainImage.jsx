@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export default class MainImage extends Component {
   constructor(props) {
@@ -17,16 +18,14 @@ export default class MainImage extends Component {
     const {
       left, top, width, height,
     } = e.target.getBoundingClientRect();
-    const x = (e.pageX - left) / width * 100;
-    const y = (e.pageY - top) / height * 100;
+    const x = ((e.pageX - left) / width) * 100;
+    const y = ((e.pageY - top) / height) * 100;
 
     const { imgURL } = this.props;
-    this.setState(
-      {
-        backgroundPosition: `${x}% ${y}%`,
-        backgroundImage: `url(${imgURL})`,
-      },
-    );
+    this.setState({
+      backgroundPosition: `${x}% ${y}%`,
+      backgroundImage: `url(${imgURL})`,
+    });
   }
 
   handleMouseLeave() {
@@ -42,39 +41,33 @@ export default class MainImage extends Component {
     const { imgURL } = this.props;
     return (
       <div>
-        {this.state.isOn
-          ? (
-            <S.ImageContainer
-              onMouseMove={(e) => this.handleMoveEffect(e)}
-              style={backgroundImageZoom}
-              onClick={this.handleMouseLeave}
-              onMouseLeave={this.handleMouseLeave}
-            >
-              <img src={imgURL} alt="" />
-            </S.ImageContainer>
-          )
-
-          : (
-            <S.ImgContainer onClick={this.handleMouseLeave}>
-              <img
-                src={imgURL}
-                alt=""
-              />
-            </S.ImgContainer>
-          )}
+        {this.state.isOn ? (
+          <S.ImageContainer
+            onMouseMove={(e) => this.handleMoveEffect(e)}
+            style={backgroundImageZoom}
+            onClick={this.handleMouseLeave}
+            onMouseLeave={this.handleMouseLeave}
+          >
+            <img src={imgURL} alt="" />
+          </S.ImageContainer>
+        ) : (
+          <S.ImgContainer onClick={this.handleMouseLeave}>
+            <img src={imgURL} alt="" />
+          </S.ImgContainer>
+        )}
       </div>
     );
   }
 }
 
-
 const S = {};
+
 S.ImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;
 
   img {
-    transition: opacity .8s;
+    transition: opacity 0.8s;
     display: block;
     width: 100%;
     height: 630.688px;
@@ -83,11 +76,11 @@ S.ImgContainer = styled.div`
 `;
 
 S.ImageContainer = styled.div`
-    overflow: hidden;
-    cursor: zoom-in;
+  overflow: hidden;
+  cursor: zoom-in;
 
   img {
-    transition: opacity .8s;
+    transition: opacity 0.8s;
     display: block;
     width: 100%;
     height: 630.688px;
@@ -98,3 +91,10 @@ S.ImageContainer = styled.div`
     }
   }
 `;
+
+MainImage.propTypes = {
+  imgURL: PropTypes.string,
+};
+MainImage.defaultProps = {
+  imgURL: '',
+};
