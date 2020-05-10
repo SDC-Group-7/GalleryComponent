@@ -43,6 +43,7 @@ export default class SideMenu extends Component {
 
   render() {
     const { data, handleDisplayImage } = this.props;
+    console.log(data);
     return (
       <S.ImageContent>
         <S.ImagesItems>

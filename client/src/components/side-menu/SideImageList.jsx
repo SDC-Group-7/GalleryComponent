@@ -8,7 +8,7 @@ const SideImageList = forwardRef((props, ref) => (
     {props.data.map((img, i) => (
       <SideImageItem
         img={img.image_url}
-        key={i}
+        key={img.reference_id}
         id={i}
         handleDisplayImage={props.handleDisplayImage}
       />
