@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
 
 const FullScreenBtn = ({ handleToggleScreen }) => (
   <S.Button onClick={handleToggleScreen}>

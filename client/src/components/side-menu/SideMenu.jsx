@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import TopArrowBtn from './TopArrowBtn';
 import BottomArrowBtn from './BottomArrowBtn';
 import SideImageList from './SideImageList';

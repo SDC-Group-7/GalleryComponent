@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import LeftArrowBtn from './LeftArrowBtn';
 import RightArrowBtn from './RightArrowBtn';
 import MainImage from './MainImage';

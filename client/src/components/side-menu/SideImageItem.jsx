@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-
 const SideImageItem = ({ img, handleDisplayImage, id }) => (
   <S.PhotoContainer onClick={(e) => handleDisplayImage(e)}>
     <img src={img} alt="" id={id} />

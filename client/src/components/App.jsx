@@ -1,9 +1,9 @@
-/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import API from '../services/index';
+
 import Slider from './slider/Slider';
 import SideMenu from './side-menu/SideMenu';
-import API from '../services/index';
 
 export default class App extends Component {
   constructor(props) {
