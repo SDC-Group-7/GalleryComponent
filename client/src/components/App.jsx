@@ -20,7 +20,7 @@ export default class App extends Component {
   componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
     API.getProduct(randomProductId)
-      .then((data) => (this.setState({ data, dataLength: data.length })))
+      .then((data) => (this.setState({ data })))
       .catch((err) => {
         throw Error(err);
       });
@@ -46,7 +46,7 @@ export default class App extends Component {
   }
 
   handleDisplayImage(e) {
-    this.setState({ currentImgIndx: e.target.id });
+    this.setState({ currentImgIndx: Number(e.target.id) });
   }
 
   render() {

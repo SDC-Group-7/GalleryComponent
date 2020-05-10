@@ -4,6 +4,7 @@ import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+
 const LeftArrowBtn = ({ handlePrevImg }) => (
   <S.Button onClick={handlePrevImg}>
     <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
@@ -31,5 +32,6 @@ LeftArrowBtn.propTypes = {
 LeftArrowBtn.defaultProps = {
   handlePrevImg: () => {},
 };
+
 
 export default LeftArrowBtn;
