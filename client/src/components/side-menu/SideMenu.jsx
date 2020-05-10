@@ -8,30 +8,46 @@ import SideImageList from './SideImageList';
 export default class SideMenu extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      cordinatesY: 0,
+    };
+
     this.imgRef = React.createRef();
     this.handleClickUp = this.handleClickUp.bind(this);
     this.handleClickDown = this.handleClickDown.bind(this);
   }
 
   handleClickUp() {
-    const { currentImgIndx, handlePrevImg } = this.props;
-    handlePrevImg();
+    const { cordinatesY } = this.state;
+    const updatedCordinates = cordinatesY === 0 ? cordinatesY : cordinatesY - 100;
 
-    // this.imgRef.current.children[currentImgIndx];
+    this.imgRef.current.scroll({
+      top: cordinatesY,
+      behavior: 'smooth',
+    });
+
+    this.setState({ cordinatesY: updatedCordinates });
   }
 
   handleClickDown() {
-    const { currentImgIndx, handleNextImg } = this.props;
-    handleNextImg();
-    // this.imgRef.current.children[indx];
+    const { cordinatesY } = this.state;
+    const updatedCordinates = undefined ? cordinatesY : cordinatesY + 100;
+
+    this.imgRef.current.scroll({
+      top: cordinatesY,
+      behavior: 'smooth',
+    });
+
+    this.setState({ cordinatesY: updatedCordinates });
   }
 
   render() {
+    const { data, handleDisplayImage } = this.props;
     return (
       <S.ImageContent>
         <S.ImagesItems>
           <TopArrowBtn handleClickUp={this.handleClickUp} />
-          <SideImageList data={this.props.data} ref={this.imgRef} />
+          <SideImageList data={data} ref={this.imgRef} handleDisplayImage={handleDisplayImage}/>
           <BottomArrowBtn handleClickDown={this.handleClickDown} />
         </S.ImagesItems>
       </S.ImageContent>
@@ -54,14 +70,10 @@ S.ImagesItems = styled.div`
 `;
 
 SideMenu.propTypes = {
-  currentImgIndx: PropTypes.number,
-  handlePrevImg: PropTypes.func,
-  handleNextImg: PropTypes.func,
   data: PropTypes.array,
+  handleDisplayImage: PropTypes.func,
 };
 SideMenu.defaultProps = {
-  currentImgIndx: 0,
-  handlePrevImg: () => {},
-  handleNextImg: () => {},
   data: [],
+  handleDisplayImage: () => {},
 };

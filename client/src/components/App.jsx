@@ -14,13 +14,16 @@ export default class App extends Component {
     };
     this.handlePrevImg = this.handlePrevImg.bind(this);
     this.handleNextImg = this.handleNextImg.bind(this);
+    this.handleDisplayImage = this.handleDisplayImage.bind(this);
   }
 
   componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
-    API.getProduct(randomProductId).then((data) => (this.setState({ data }))).catch((err) => {
-      throw Error(err);
-    });
+    API.getProduct(randomProductId)
+      .then((data) => (this.setState({ data, dataLength: data.length })))
+      .catch((err) => {
+        throw Error(err);
+      });
   }
 
   handlePrevImg() {
@@ -42,9 +45,12 @@ export default class App extends Component {
     this.setState({ currentImgIndx: index });
   }
 
+  handleDisplayImage(e) {
+    this.setState({ currentImgIndx: e.target.id });
+  }
 
   render() {
-    const { data, currentImgIndx} = this.state;
+    const { data, currentImgIndx } = this.state;
     if (data.length > 0) {
       var imgURL = data[currentImgIndx].image_url;
     }
@@ -59,7 +65,7 @@ export default class App extends Component {
               handlePrevImg={this.handlePrevImg}
               handleNextImg={this.handleNextImg}
               imgURL={imgURL}
-              currentImgIndx={this.state.currentImgIndx}
+              currentImgIndx={currentImgIndx}
             />
           </S.SliderContainer>
         </S.MainPhoto>
@@ -68,7 +74,8 @@ export default class App extends Component {
             data={data}
             handlePrevImg={this.handlePrevImg}
             handleNextImg={this.handleNextImg}
-            currentImgIndx={this.state.currentImgIndx}
+            currentImgIndx={currentImgIndx}
+            handleDisplayImage={this.handleDisplayImage}
           />
         </S.SideContainer>
       </S.AppContainer>

@@ -6,7 +6,12 @@ import SideImageItem from './SideImageItem';
 const SideImageList = forwardRef((props, ref) => (
   <S.ListContainer ref={ref}>
     {props.data.map((img, i) => (
-      <SideImageItem img={img.image_url} key={i} />
+      <SideImageItem
+        img={img.image_url}
+        key={i}
+        id={i}
+        handleDisplayImage={props.handleDisplayImage}
+      />
     ))}
   </S.ListContainer>
 ));
@@ -21,9 +26,12 @@ S.ListContainer = styled.div`
 
 SideImageList.propTypes = {
   data: PropTypes.array,
+  handleDisplayImage: PropTypes.func,
 };
 SideImageList.defaultProps = {
   data: [],
+  handleDisplayImage: () => {},
+
 };
 
 export default SideImageList;

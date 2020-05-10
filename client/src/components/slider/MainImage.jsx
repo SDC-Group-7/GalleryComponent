@@ -8,13 +8,13 @@ export default class MainImage extends Component {
     this.state = {
       backgroundImage: 'url()',
       backgroundPosition: '0% 0%',
-      isOn: false,
+      hasImageClicked: false,
     };
-    this.handleMoveEffect = this.handleMoveEffect.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleZoomEffect = this.handleZoomEffect.bind(this);
+    this.handleClickImage = this.handleClickImage.bind(this);
   }
 
-  handleMoveEffect(e) {
+  handleZoomEffect(e) {
     const {
       left, top, width, height,
     } = e.target.getBoundingClientRect();
@@ -28,8 +28,8 @@ export default class MainImage extends Component {
     });
   }
 
-  handleMouseLeave() {
-    this.setState({ isOn: !this.state.isOn });
+  handleClickImage() {
+    this.setState({ hasImageClicked: !this.state.hasImageClicked });
   }
 
   render() {
@@ -37,21 +37,22 @@ export default class MainImage extends Component {
       backgroundPosition: this.state.backgroundPosition,
       backgroundImage: this.state.backgroundImage,
     };
+    const { hasImageClicked } = this.state;
 
     const { imgURL } = this.props;
     return (
       <div>
-        {this.state.isOn ? (
+        {hasImageClicked ? (
           <S.ImageContainer
-            onMouseMove={(e) => this.handleMoveEffect(e)}
+            onMouseMove={(e) => this.handleZoomEffect(e)}
             style={backgroundImageZoom}
-            onClick={this.handleMouseLeave}
-            onMouseLeave={this.handleMouseLeave}
+            onClick={this.handleClickImage}
+            onMouseLeave={this.handleClickImage}
           >
             <img src={imgURL} alt="" />
           </S.ImageContainer>
         ) : (
-          <S.ImgContainer onClick={this.handleMouseLeave}>
+          <S.ImgContainer onClick={this.handleClickImage}>
             <img src={imgURL} alt="" />
           </S.ImgContainer>
         )}
