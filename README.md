@@ -4,10 +4,8 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/LeggoMyLego/ReviewComponent
+  - https://github.com/LeggoMyLego/ProductComponent
 
 ## Table of Contents
 
@@ -18,13 +16,17 @@
 ## Usage
 
 > Some usage instructions
+npm run start
+  - starts server
+npm run react-dev
+  - starts webpack
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- Mysql @5.7
 
 ## Development
 

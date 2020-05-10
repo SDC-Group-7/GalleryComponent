@@ -1,18 +1,17 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import styled from 'styled-components';
-import FullScreenBtn from './FullScreenBtn';
-import SideMenu from './SideMenu';
+import PropTypes from 'prop-types';
+
+import FullScreenBtn from '../slider/FullScreenBtn';
 
 const Modal = ({
-  imgURL, isOpen, handleToggleScreen, data,
+  imgURL, isOpen, handleToggleScreen,
 }) => {
   if (!isOpen) {
     return null;
   }
   return (
     <S.BackgroundContainer>
-      <SideMenu data={data} />
       <FullScreenBtn handleToggleScreen={handleToggleScreen} />
       <S.ModalContainer>
         <img src={imgURL} alt="" />
@@ -21,9 +20,8 @@ const Modal = ({
   );
 };
 
-export default Modal;
-
 const S = {};
+
 S.BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
@@ -47,3 +45,17 @@ S.ModalContainer = styled.div`
     width: 900px;
   }
 `;
+
+Modal.propTypes = {
+  imgURL: PropTypes.string,
+  handleToggleScreen: PropTypes.func,
+  isOpen: PropTypes.bool,
+};
+
+Modal.defaultProps = {
+  imgURL: '',
+  handleToggleScreen: () => {},
+  isOpen: false,
+};
+
+export default Modal;

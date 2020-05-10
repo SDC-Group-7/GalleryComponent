@@ -1,17 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
 
-const LeftArrowBtn = ({ prevImg }) => (
-  <S.Button onClick={prevImg}>
+const LeftArrowBtn = ({ handlePrevImg }) => (
+  <S.Button onClick={handlePrevImg}>
     <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
   </S.Button>
 );
 
-export default LeftArrowBtn;
-
 const S = {};
+
 S.Button = styled.button`
   position: absolute;
   top: 50%;
@@ -24,3 +24,13 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
 `;
+
+LeftArrowBtn.propTypes = {
+  handlePrevImg: PropTypes.func,
+};
+LeftArrowBtn.defaultProps = {
+  handlePrevImg: () => {},
+};
+
+
+export default LeftArrowBtn;

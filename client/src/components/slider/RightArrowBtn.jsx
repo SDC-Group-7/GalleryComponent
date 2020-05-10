@@ -1,17 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
 
-const RightArrowBtn = ({ nextImg }) => (
-  <S.Button onClick={nextImg}>
+const RightArrowBtn = ({ handleNextImg }) => (
+  <S.Button onClick={handleNextImg}>
     <FontAwesomeIcon icon={faChevronCircleRight} size="2x" />
   </S.Button>
 );
 
-export default RightArrowBtn;
-
 const S = {};
+
 S.Button = styled.button`
   position: absolute;
   top: 50%;
@@ -24,3 +24,13 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
 `;
+
+RightArrowBtn.propTypes = {
+  handleNextImg: PropTypes.func,
+};
+
+RightArrowBtn.defaultProps = {
+  handleNextImg: () => {},
+};
+
+export default RightArrowBtn;
