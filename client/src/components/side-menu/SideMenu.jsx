@@ -8,7 +8,7 @@ export default class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.imgRef = React.createRef();
-    this.handleClicklUp = this.handleClickUp.bind(this);
+    this.handleClickUp = this.handleClickUp.bind(this);
     this.handleClickDown = this.handleClickDown.bind(this);
   }
 
