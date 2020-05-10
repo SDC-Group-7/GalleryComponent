@@ -5,7 +5,7 @@ import LeftArrowBtn from './LeftArrowBtn';
 import RightArrowBtn from './RightArrowBtn';
 import MainImage from './MainImage';
 import FullScreenBtn from './FullScreenBtn';
-import Modal from './Modal';
+import Modal from '../modal/Modal';
 
 export default class Slider extends Component {
   constructor(props) {

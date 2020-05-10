@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import FullScreenBtn from './FullScreenBtn';
+import FullScreenBtn from '../slider/FullScreenBtn';
 
 const Modal = ({
   imgURL, isOpen, handleToggleScreen,
