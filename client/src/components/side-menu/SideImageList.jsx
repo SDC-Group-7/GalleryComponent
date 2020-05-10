@@ -11,13 +11,6 @@ const SideImageList = forwardRef((props, ref) => (
   </S.ListContainer>
 ));
 
-SideImageList.propTypes = {
-  data: PropTypes.array,
-};
-SideImageList.defaultProps = {
-  data: [],
-};
-
 const S = {};
 
 S.ListContainer = styled.div`
@@ -25,5 +18,12 @@ S.ListContainer = styled.div`
   position: relative;
   overflow: auto;
 `;
+
+SideImageList.propTypes = {
+  data: PropTypes.array,
+};
+SideImageList.defaultProps = {
+  data: [],
+};
 
 export default SideImageList;

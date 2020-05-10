@@ -8,13 +8,6 @@ const SideImageItem = ({ img }) => (
   </S.PhotoContainer>
 );
 
-SideImageItem.propTypes = {
-  img: PropTypes.string,
-};
-SideImageItem.defaultProps = {
-  img: '',
-};
-
 const S = {};
 
 S.PhotoContainer = styled.div`
@@ -28,5 +21,12 @@ S.PhotoContainer = styled.div`
     padding: 10px 45px 10px 0;
   }
 `;
+
+SideImageItem.propTypes = {
+  img: PropTypes.string,
+};
+SideImageItem.defaultProps = {
+  img: '',
+};
 
 export default SideImageItem;

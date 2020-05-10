@@ -19,7 +19,7 @@ export default class App extends Component {
   componentDidMount() {
     const randomProductId = Math.floor(Math.random() * 100) + 1;
     API.getProduct(randomProductId).then((data) => (this.setState({ data }))).catch((err) => {
-      console.log(err);
+      throw Error(err);
     });
   }
 
@@ -44,9 +44,9 @@ export default class App extends Component {
 
 
   render() {
-    const { data } = this.state;
-    if (this.state.data.length > 0) {
-      var imgURL = this.state.data[this.state.currentImgIndx].image_url;
+    const { data, currentImgIndx} = this.state;
+    if (data.length > 0) {
+      var imgURL = data[currentImgIndx].image_url;
     }
 
     return (
@@ -77,6 +77,7 @@ export default class App extends Component {
 }
 
 const S = {};
+
 S.AppContainer = styled.div`
   width: 100vh;
   height: 70vh;
