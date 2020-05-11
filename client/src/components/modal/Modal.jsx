@@ -31,6 +31,7 @@ S.BackgroundContainer = styled.div`
   background: white;
   display: flex;
   justify-content: center;
+
 `;
 
 S.ModalContainer = styled.div`
