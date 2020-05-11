@@ -36,6 +36,7 @@ export default class MainImage extends Component {
     const backgroundImageZoom = {
       backgroundPosition: this.state.backgroundPosition,
       backgroundImage: this.state.backgroundImage,
+      borderRadius: '10px',
     };
     const { hasImageClicked } = this.state;
 
@@ -43,18 +44,18 @@ export default class MainImage extends Component {
     return (
       <div>
         {hasImageClicked ? (
-          <S.ImageContainer
+          <S.AfterEffectImgContainer
             onMouseMove={(e) => this.handleZoomEffect(e)}
             style={backgroundImageZoom}
             onClick={this.handleClickImage}
             onMouseLeave={this.handleClickImage}
           >
             <img src={imgURL} alt="" />
-          </S.ImageContainer>
+          </S.AfterEffectImgContainer>
         ) : (
-          <S.ImgContainer onClick={this.handleClickImage}>
+          <S.BeforeEffectImgContainer onClick={this.handleClickImage}>
             <img src={imgURL} alt="" />
-          </S.ImgContainer>
+          </S.BeforeEffectImgContainer>
         )}
       </div>
     );
@@ -63,7 +64,7 @@ export default class MainImage extends Component {
 
 const S = {};
 
-S.ImgContainer = styled.div`
+S.BeforeEffectImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;
 
@@ -71,12 +72,13 @@ S.ImgContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 630.688px;
+    height: 500px;
     width: 695.75px;
+    border-radius: 10px;
   }
 `;
 
-S.ImageContainer = styled.div`
+S.AfterEffectImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;
 
@@ -84,8 +86,9 @@ S.ImageContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 630.688px;
+    height: 500px;
     width: 695.75px;
+    border-radius: 10px;
 
     &:hover {
       opacity: 0;

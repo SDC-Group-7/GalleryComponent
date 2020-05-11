@@ -23,6 +23,16 @@ S.Button = styled.button`
   border: none;
   outline: none;
   box-shadow: none;
+
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+
+  &:hover {
+    color: rgb(169,169,169);
+    background: transparent;
+  }
 `;
 
 LeftArrowBtn.propTypes = {

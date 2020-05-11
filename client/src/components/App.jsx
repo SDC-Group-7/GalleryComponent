@@ -54,18 +54,14 @@ export default class App extends Component {
     if (data.length > 0) {
       var imgURL = data[currentImgIndx].image_url;
     }
-
     return (
-
       <S.AppContainer>
         <S.MainPhoto>
           <S.SliderContainer>
             <Slider
-              data={data}
               handlePrevImg={this.handlePrevImg}
               handleNextImg={this.handleNextImg}
               imgURL={imgURL}
-              currentImgIndx={currentImgIndx}
             />
           </S.SliderContainer>
         </S.MainPhoto>
@@ -74,7 +70,6 @@ export default class App extends Component {
             data={data}
             handlePrevImg={this.handlePrevImg}
             handleNextImg={this.handleNextImg}
-            currentImgIndx={currentImgIndx}
             handleDisplayImage={this.handleDisplayImage}
           />
         </S.SideContainer>
@@ -95,11 +90,11 @@ S.AppContainer = styled.div`
 `;
 
 S.MainPhoto = styled.div`
-  background: #f8f8f8;
   grid-column: 2/3;
   grid-row: 1/3;
   display: grid;
   grid-template-rows: 1;
+
 `;
 
 S.SliderContainer = styled.div`
@@ -109,8 +104,8 @@ S.SliderContainer = styled.div`
 `;
 
 S.SideContainer = styled.div`
-  background: #f8f8f8;
   grid-column: 1/2;
   grid-row: 1/3;
   display: grid;
+  width: 250px;
 `;

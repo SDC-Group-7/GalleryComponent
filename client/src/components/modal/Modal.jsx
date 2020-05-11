@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import FullScreenBtn from '../slider/FullScreenBtn';
+import MainImage from '../slider/MainImage';
 
 const Modal = ({
   imgURL, isOpen, handleToggleScreen,
@@ -14,7 +15,7 @@ const Modal = ({
     <S.BackgroundContainer>
       <FullScreenBtn handleToggleScreen={handleToggleScreen} />
       <S.ModalContainer>
-        <img src={imgURL} alt="" />
+        <MainImage imgURL={imgURL} />
       </S.ModalContainer>
     </S.BackgroundContainer>
   );
@@ -31,6 +32,7 @@ S.BackgroundContainer = styled.div`
   background: white;
   display: flex;
   justify-content: center;
+
 `;
 
 S.ModalContainer = styled.div`
@@ -41,8 +43,9 @@ S.ModalContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 700px;
+    height: 600px;
     width: 900px;
+    border-radius: 20px;
   }
 `;
 

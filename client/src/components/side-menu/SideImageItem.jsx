@@ -11,14 +11,17 @@ const SideImageItem = ({ img, handleDisplayImage, id }) => (
 const S = {};
 
 S.PhotoContainer = styled.div`
-  height: 120px;
+  height: 60px;
+  width: 110px;
+  margin-bottom: 10px;
 
   img {
-    height: 100px;
+    height: 100%;
+    border-radius: 5px;
     width: 100%;
     display: block;
     position: relative;
-    padding: 10px 45px 10px 0;
+
   }
 `;
 

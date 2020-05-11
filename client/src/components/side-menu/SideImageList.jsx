@@ -20,7 +20,6 @@ const SideImageList = forwardRef((props, ref) => (
 const S = {};
 
 S.ListContainer = styled.div`
-  padding: 40px 0 40px 40px;
   position: relative;
   overflow: auto;
 `;

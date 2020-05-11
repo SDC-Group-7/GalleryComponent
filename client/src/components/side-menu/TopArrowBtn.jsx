@@ -19,8 +19,15 @@ S.Button = styled.button`
   border: none;
   outline: none;
   box-shadow: none;
-  padding-top: 50px;
   position:relative;
+  margin-bottom: 5px;
+  padding-right: 80px;
+  transition: .5s ease-in-out;
+
+  &:hover {
+    color: rgb(169,169,169);
+    background: transparent;
+  }
 `;
 
 TopArrowBtn.propTypes = {

@@ -6,7 +6,7 @@ import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 
 const FullScreenBtn = ({ handleToggleScreen }) => (
   <S.Button onClick={handleToggleScreen}>
-    <FontAwesomeIcon icon={faExpandArrowsAlt} size="2x" />
+    <FontAwesomeIcon icon={faExpandArrowsAlt} size="3x" />
   </S.Button>
 );
 
@@ -16,12 +16,14 @@ S.Button = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 18px;
-  color: black;
+  color: rgb(169,169,169);
   cursor: pointer;
   border: none;
   background: transparent;
+  outline: none;
+  box-shadow: none;
 `;
+
 
 FullScreenBtn.propTypes = {
   handleToggleScreen: PropTypes.func,
