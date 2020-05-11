@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import axios from 'axios';
 import API from '../../client/src/services/index';
 import App from '../../client/src/components/App';
-import Slider from '../../client/src/components/SideMenu';
-import SideMenu from '../../client/src/components/Slider';
+import Slider from '../../client/src/components/side-menu/SideMenu';
+import SideMenu from '../../client/src/components/slider/Slider';
 
 jest.mock('axios');
 
