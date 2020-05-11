@@ -76,7 +76,7 @@ S.BeforeEffectImgContainer = styled.div`
     width: 695.75px;
     border-radius: 30px;
   }
-`;
+  `;
 
 S.AfterEffectImgContainer = styled.div`
   overflow: hidden;

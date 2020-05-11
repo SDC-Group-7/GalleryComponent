@@ -54,7 +54,7 @@ export default class App extends Component {
     if (data.length > 0) {
       var imgURL = data[currentImgIndx].image_url;
     }
-
+console.log(this.state.data);
     return (
 
       <S.AppContainer>
