@@ -44,18 +44,18 @@ export default class MainImage extends Component {
     return (
       <div>
         {hasImageClicked ? (
-          <S.ImageContainer
+          <S.AfterEffectImgContainer
             onMouseMove={(e) => this.handleZoomEffect(e)}
             style={backgroundImageZoom}
             onClick={this.handleClickImage}
             onMouseLeave={this.handleClickImage}
           >
             <img src={imgURL} alt="" />
-          </S.ImageContainer>
+          </S.AfterEffectImgContainer>
         ) : (
-          <S.ImgContainer onClick={this.handleClickImage}>
+          <S.BeforeEffectImgContainer onClick={this.handleClickImage}>
             <img src={imgURL} alt="" />
-          </S.ImgContainer>
+          </S.BeforeEffectImgContainer>
         )}
       </div>
     );
@@ -64,7 +64,7 @@ export default class MainImage extends Component {
 
 const S = {};
 
-S.ImgContainer = styled.div`
+S.BeforeEffectImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;
 
@@ -78,7 +78,7 @@ S.ImgContainer = styled.div`
   }
 `;
 
-S.ImageContainer = styled.div`
+S.AfterEffectImgContainer = styled.div`
   overflow: hidden;
   cursor: zoom-in;
 

@@ -95,7 +95,6 @@ S.AppContainer = styled.div`
 `;
 
 S.MainPhoto = styled.div`
-  background: #f8f8f8;
   grid-column: 2/3;
   grid-row: 1/3;
   display: grid;
@@ -110,7 +109,6 @@ S.SliderContainer = styled.div`
 `;
 
 S.SideContainer = styled.div`
-  background: #f8f8f8;
   grid-column: 1/2;
   grid-row: 1/3;
   display: grid;

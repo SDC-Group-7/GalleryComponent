@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import FullScreenBtn from '../slider/FullScreenBtn';
+import MainImage from '../slider/MainImage';
 
 const Modal = ({
   imgURL, isOpen, handleToggleScreen,
@@ -14,7 +15,7 @@ const Modal = ({
     <S.BackgroundContainer>
       <FullScreenBtn handleToggleScreen={handleToggleScreen} />
       <S.ModalContainer>
-        <img src={imgURL} alt="" />
+        <MainImage imgURL={imgURL} />
       </S.ModalContainer>
     </S.BackgroundContainer>
   );

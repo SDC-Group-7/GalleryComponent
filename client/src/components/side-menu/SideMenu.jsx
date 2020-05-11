@@ -48,7 +48,7 @@ export default class SideMenu extends Component {
       <S.ImageContent>
         <S.ImagesItems>
           <TopArrowBtn handleClickUp={this.handleClickUp} />
-          <SideImageList data={data} ref={this.imgRef} handleDisplayImage={handleDisplayImage}/>
+          <SideImageList data={data} ref={this.imgRef} handleDisplayImage={handleDisplayImage} />
           <BottomArrowBtn handleClickDown={this.handleClickDown} />
         </S.ImagesItems>
       </S.ImageContent>
