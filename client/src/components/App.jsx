@@ -100,6 +100,7 @@ S.MainPhoto = styled.div`
   grid-row: 1/3;
   display: grid;
   grid-template-rows: 1;
+
 `;
 
 S.SliderContainer = styled.div`

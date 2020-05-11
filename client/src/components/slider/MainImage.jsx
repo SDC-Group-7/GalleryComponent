@@ -36,6 +36,7 @@ export default class MainImage extends Component {
     const backgroundImageZoom = {
       backgroundPosition: this.state.backgroundPosition,
       backgroundImage: this.state.backgroundImage,
+      borderRadius: '30px',
     };
     const { hasImageClicked } = this.state;
 
@@ -73,6 +74,7 @@ S.ImgContainer = styled.div`
     width: 100%;
     height: 630.688px;
     width: 695.75px;
+    border-radius: 30px;
   }
 `;
 
@@ -86,6 +88,7 @@ S.ImageContainer = styled.div`
     width: 100%;
     height: 630.688px;
     width: 695.75px;
+    border-radius: 30px;
 
     &:hover {
       opacity: 0;

@@ -43,6 +43,7 @@ S.ModalContainer = styled.div`
     width: 100%;
     height: 700px;
     width: 900px;
+    border-radius: 20px;
   }
 `;
 

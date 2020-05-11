@@ -24,8 +24,14 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
 
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+
   &:hover {
-    color: rgb(0, 0, 0);
+    color: rgb(169,169,169);
+    background: transparent;
   }
 `;
 
