@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import RightArrow from '../../client/src/components/RightArrow';
+import { shallow } from 'enzyme';
+import RightArrow from '../../client/src/components/slider/RightArrowBtn';
 
 describe('Testing RightArrow button  ', () => {
   const RightArrowWrapper = shallow(<RightArrow />);
