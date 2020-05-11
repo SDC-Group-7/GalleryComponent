@@ -23,6 +23,10 @@ S.Button = styled.button`
   border: none;
   outline: none;
   box-shadow: none;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
 `;
 
 LeftArrowBtn.propTypes = {

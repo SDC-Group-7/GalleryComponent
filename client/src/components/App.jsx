@@ -113,4 +113,5 @@ S.SideContainer = styled.div`
   grid-column: 1/2;
   grid-row: 1/3;
   display: grid;
+  width: 250px;
 `;

@@ -17,10 +17,14 @@ S.Button = styled.button`
   top: 20px;
   right: 20px;
   font-size: 18px;
-  color: black;
+  color: rgb(91, 88, 88);
   cursor: pointer;
   border: none;
   background: transparent;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
 `;
 
 FullScreenBtn.propTypes = {

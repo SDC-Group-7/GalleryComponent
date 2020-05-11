@@ -20,6 +20,10 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
   position:relative;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
 `;
 
 BottomArrowBtn.propTypes = {

@@ -21,6 +21,10 @@ S.Button = styled.button`
   box-shadow: none;
   padding-top: 50px;
   position:relative;
+
+  &:hover {
+    color: rgb(0, 0, 0);
+  }
 `;
 
 TopArrowBtn.propTypes = {
