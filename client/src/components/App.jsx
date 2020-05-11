@@ -54,18 +54,14 @@ export default class App extends Component {
     if (data.length > 0) {
       var imgURL = data[currentImgIndx].image_url;
     }
-console.log(this.state.data);
     return (
-
       <S.AppContainer>
         <S.MainPhoto>
           <S.SliderContainer>
             <Slider
-              data={data}
               handlePrevImg={this.handlePrevImg}
               handleNextImg={this.handleNextImg}
               imgURL={imgURL}
-              currentImgIndx={currentImgIndx}
             />
           </S.SliderContainer>
         </S.MainPhoto>
@@ -74,7 +70,6 @@ console.log(this.state.data);
             data={data}
             handlePrevImg={this.handlePrevImg}
             handleNextImg={this.handleNextImg}
-            currentImgIndx={currentImgIndx}
             handleDisplayImage={this.handleDisplayImage}
           />
         </S.SideContainer>

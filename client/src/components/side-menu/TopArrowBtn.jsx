@@ -19,12 +19,9 @@ S.Button = styled.button`
   border: none;
   outline: none;
   box-shadow: none;
-  padding-top: 50px;
   position:relative;
-
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
+  margin-bottom: 5px;
+  padding-right: 80px;
   transition: .5s ease-in-out;
 
   &:hover {

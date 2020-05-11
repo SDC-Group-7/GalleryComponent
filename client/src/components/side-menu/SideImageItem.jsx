@@ -4,23 +4,25 @@ import PropTypes from 'prop-types';
 
 const SideImageItem = ({ img, handleDisplayImage, id }) => (
   <S.PhotoContainer onClick={(e) => handleDisplayImage(e)}>
-    <S.Image src={img} alt="" id={id} />
+    <img src={img} alt="" id={id} />
   </S.PhotoContainer>
 );
 
 const S = {};
 
 S.PhotoContainer = styled.div`
-  padding: 15px 0 15px 0;
+  height: 60px;
+  width: 110px;
+  margin-bottom: 10px;
+
   img {
-    height: 100px;
+    height: 100%;
+    border-radius: 5px;
     width: 100%;
     display: block;
     position: relative;
+
   }
-`;
-S.Image = styled.img`
-  border-radius: 10px;
 `;
 
 SideImageItem.propTypes = {

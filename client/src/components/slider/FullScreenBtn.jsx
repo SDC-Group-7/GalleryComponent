@@ -20,6 +20,8 @@ S.Button = styled.button`
   cursor: pointer;
   border: none;
   background: transparent;
+  outline: none;
+  box-shadow: none;
 `;
 
 

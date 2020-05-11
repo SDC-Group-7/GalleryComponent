@@ -20,10 +20,8 @@ S.Button = styled.button`
   outline: none;
   box-shadow: none;
   position:relative;
-
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
+  margin-top: 10px;
+  padding-right: 80px;
   transition: .5s ease-in-out;
 
   &:hover {
