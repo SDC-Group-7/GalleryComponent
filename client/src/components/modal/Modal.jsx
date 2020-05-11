@@ -43,7 +43,7 @@ S.ModalContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 700px;
+    height: 600px;
     width: 900px;
     border-radius: 20px;
   }

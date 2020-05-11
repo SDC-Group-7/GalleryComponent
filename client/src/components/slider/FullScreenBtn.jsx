@@ -16,21 +16,12 @@ S.Button = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-  color: rgb(91, 88, 88);
+  color: rgb(169,169,169);
   cursor: pointer;
   border: none;
   background: transparent;
-
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-
-  &:hover {
-    color: rgb(169,169,169);
-    background: transparent;
-  }
 `;
+
 
 FullScreenBtn.propTypes = {
   handleToggleScreen: PropTypes.func,

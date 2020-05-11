@@ -72,7 +72,7 @@ S.BeforeEffectImgContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 630.688px;
+    height: 500px;
     width: 695.75px;
     border-radius: 30px;
   }
@@ -86,7 +86,7 @@ S.AfterEffectImgContainer = styled.div`
     transition: opacity 0.8s;
     display: block;
     width: 100%;
-    height: 630.688px;
+    height: 500px;
     width: 695.75px;
     border-radius: 30px;
 
