@@ -24,13 +24,4 @@ coverage
 build/
 dist/
 
-
-# database config
-config.js
-
-
-# AWS_S3 images URL
-imageData.js
-
-#envcr
 .envrc
