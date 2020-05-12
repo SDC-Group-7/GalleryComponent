@@ -54,7 +54,7 @@ export default class App extends Component {
     const { data, currentImgIndx } = this.state;
     return (
       <>
-        {data.length > 0
+        {data.length
           ? (
             <S.AppContainer>
               <S.MainPhoto>
