@@ -14,7 +14,8 @@
     "start": "nodemon ./server/start.js",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
