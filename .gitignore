@@ -24,6 +24,4 @@ coverage
 build/
 dist/
 
-
-# env
 .envrc
