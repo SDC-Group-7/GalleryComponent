@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import API from '../services/index';
-
 import Slider from './slider/Slider';
 import SideMenu from './side-menu/SideMenu';
 
@@ -24,7 +24,9 @@ export default class App extends Component {
       .catch((err) => {
         throw Error(err);
       });
+
   }
+
 
   handlePrevImg() {
     const { data, currentImgIndx } = this.state;
@@ -51,28 +53,31 @@ export default class App extends Component {
 
   render() {
     const { data, currentImgIndx } = this.state;
-    if (data.length > 0) {
-      var imgURL = data[currentImgIndx].image_url;
-    }
     return (
       <S.AppContainer>
-        <S.MainPhoto>
-          <S.SliderContainer>
-            <Slider
-              handlePrevImg={this.handlePrevImg}
-              handleNextImg={this.handleNextImg}
-              imgURL={imgURL}
-            />
-          </S.SliderContainer>
-        </S.MainPhoto>
-        <S.SideContainer>
-          <SideMenu
-            data={data}
-            handlePrevImg={this.handlePrevImg}
-            handleNextImg={this.handleNextImg}
-            handleDisplayImage={this.handleDisplayImage}
-          />
-        </S.SideContainer>
+        {data.length > 0
+          ? (
+            <>
+              <S.MainPhoto>
+                <S.SliderContainer>
+                  <Slider
+                    handlePrevImg={this.handlePrevImg}
+                    handleNextImg={this.handleNextImg}
+                    imgURL={data[currentImgIndx].image_url}
+                  />
+                </S.SliderContainer>
+              </S.MainPhoto>
+              <S.SideContainer>
+                <SideMenu
+                  data={data}
+                  handlePrevImg={this.handlePrevImg}
+                  handleNextImg={this.handleNextImg}
+                  handleDisplayImage={this.handleDisplayImage}
+                />
+              </S.SideContainer>
+            </>
+          )
+          : <p>loading</p>}
       </S.AppContainer>
     );
   }

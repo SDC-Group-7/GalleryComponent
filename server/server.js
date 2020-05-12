@@ -7,6 +7,10 @@ const { getProductImages } = require('./controller.js');
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(`Incoming ${req.method} request to ${req.path}`);
+  next();
+});
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
