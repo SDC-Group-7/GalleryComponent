@@ -24,7 +24,6 @@ export default class App extends Component {
       .catch((err) => {
         throw Error(err);
       });
-
   }
 
 
@@ -54,10 +53,10 @@ export default class App extends Component {
   render() {
     const { data, currentImgIndx } = this.state;
     return (
-      <S.AppContainer>
+      <>
         {data.length > 0
           ? (
-            <>
+            <S.AppContainer>
               <S.MainPhoto>
                 <S.SliderContainer>
                   <Slider
@@ -75,10 +74,10 @@ export default class App extends Component {
                   handleDisplayImage={this.handleDisplayImage}
                 />
               </S.SideContainer>
-            </>
+            </S.AppContainer>
           )
           : <p>loading</p>}
-      </S.AppContainer>
+      </>
     );
   }
 }

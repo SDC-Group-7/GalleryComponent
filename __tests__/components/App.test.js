@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import axios from 'axios';
 import API from '../../client/src/services/index';
 import App from '../../client/src/components/App';
-import Slider from '../../client/src/components/side-menu/SideMenu';
-import SideMenu from '../../client/src/components/slider/Slider';
+import SideMenu from '../../client/src/components/side-menu/SideMenu';
+import Slider from '../../client/src/components/slider/Slider';
 
 jest.mock('axios');
 
@@ -31,12 +31,12 @@ describe('Should be fetching data ', () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data }));
     await expect(API.getProduct(3)).resolves.toEqual(data);
   });
+});
 
-  describe('Render Components', () => {
-    it('should render <SideMenu /> and <Slider /> ', () => {
-      const wrapper = shallow(<App />);
-      expect(wrapper.containsMatchingElement(<Slider />)).toBe(true);
-      expect(wrapper.containsMatchingElement(<SideMenu />)).toBe(true);
-    });
+describe('Render Components -- <App />', () => {
+  it('should render <SideMenu /> and <Slider /> ', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.containsMatchingElement(<Slider />)).toBe(true);
+    expect(wrapper.containsMatchingElement(<SideMenu />)).toBe(true);
   });
 });
