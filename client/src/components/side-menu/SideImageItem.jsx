@@ -21,7 +21,6 @@ S.PhotoContainer = styled.div`
     width: 100%;
     display: block;
     position: relative;
-
   }
 `;
 

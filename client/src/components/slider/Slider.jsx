@@ -23,7 +23,9 @@ export default class Slider extends Component {
   }
 
   render() {
-    const { imgURL, handlePrevImg, handleNextImg } = this.props;
+    const {
+      imgURL, handlePrevImg, handleNextImg, data, handleDisplayImage
+    } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -38,6 +40,8 @@ export default class Slider extends Component {
           imgURL={imgURL}
           handleNextImg={handleNextImg}
           handlePrevImg={handlePrevImg}
+          data={data}
+          handleDisplayImage={handleDisplayImage}
         />
       </S.Container>
     );
@@ -55,10 +59,14 @@ Slider.propTypes = {
   imgURL: PropTypes.string,
   handlePrevImg: PropTypes.func,
   handleNextImg: PropTypes.func,
+  data: PropTypes.array,
+  handleDisplayImage: PropTypes.func,
 };
 
 Slider.defaultProps = {
   imgURL: '',
   handlePrevImg: () => {},
   handleNextImg: () => {},
+  data: [],
+  handleDisplayImage: () => {},
 };

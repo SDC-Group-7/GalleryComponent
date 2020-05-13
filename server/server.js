@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 const middleware = require('./middleware.js');
 
 const { getProductImages } = require('./controller.js');
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
