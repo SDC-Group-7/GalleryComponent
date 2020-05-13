@@ -21,7 +21,7 @@ const S = {};
 
 S.ListContainer = styled.div`
   position: relative;
-  overflow: auto;
+  overflow: auto
 `;
 
 SideImageList.propTypes = {

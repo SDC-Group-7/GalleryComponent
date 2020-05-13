@@ -78,3 +78,4 @@ SideMenu.defaultProps = {
   data: [],
   handleDisplayImage: () => {},
 };
+

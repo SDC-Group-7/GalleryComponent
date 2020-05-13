@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import API from '../services/index';
 import Slider from './slider/Slider';
 import SideMenu from './side-menu/SideMenu';
@@ -63,6 +62,8 @@ export default class App extends Component {
                     handlePrevImg={this.handlePrevImg}
                     handleNextImg={this.handleNextImg}
                     imgURL={data[currentImgIndx].image_url}
+                    data={data}
+                    handleDisplayImage={this.handleDisplayImage}
                   />
                 </S.SliderContainer>
               </S.MainPhoto>
