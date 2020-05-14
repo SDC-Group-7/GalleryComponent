@@ -12,10 +12,12 @@
     "seed-db": "node db/seeder/seed.js",
     "react-dev": "webpack -w",
     "start": "nodemon ./server/start.js",
+    "build:docker": "bash container.bash",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
-    "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit"
+    "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
+    "server": "concurrently -k \"npm run start\" \"npm run react-dev\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -23,6 +25,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
