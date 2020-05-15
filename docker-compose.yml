@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.29
+    environment:
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+    volumes:
+      - my-db:/var/lib/mysql
+
+  gallery:
+    build: .
+    volumes:
+      - ${PWD}/:/src/GalleryComponent
+    depends_on:
+      - db
+    ports:
+      - "3001:3001"
+
+volumes:
+  my-db: {}
