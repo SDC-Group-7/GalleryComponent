@@ -24,6 +24,4 @@ coverage
 build/
 
 .envrc
-
-
 /client/dist/**/*.js
