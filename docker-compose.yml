@@ -3,8 +3,8 @@ services:
   db:
     image: mysql:5.7.29
     environment:
-      MYSQL_DATABASE: ${DATABASE}
-      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MYSQL_DATABASE: 'gallery'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
       - my-db:/var/lib/mysql
 
