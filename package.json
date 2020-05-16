@@ -17,7 +17,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
-    "server": "sleep 20 &&  \"npm run seed-db\" \"npm run start\" \"npm run react-dev\""
+    "server": "sleep 30 && concurrently \"npm run start\" \"npm run react-dev\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
