@@ -30,6 +30,4 @@ STYLE-GUIDE.md
 
 .eslintrc.js
 
-Public
-
-
+.dockerignore
