@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const BottomArrowBtn = ({ handleClickDown }) => (
-  <S.Button type="button" onClick={handleClickDown}>
+  <S.Button type="button" onClick={handleClickDown} name="bottom-btn">
     <FontAwesomeIcon icon={faChevronDown} size="2x" />
   </S.Button>
 );
