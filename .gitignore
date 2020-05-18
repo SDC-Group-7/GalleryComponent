@@ -25,3 +25,16 @@ build/
 
 .envrc
 /client/dist/**/*.js
+/client/dist/**/*.br
+/client/dist/**/*.gz
+
+.env
+STYLE-GUIDE.md
+
+.eslintrc.js
+
+.dockerignore
+
+.vscode
+coverage/
+

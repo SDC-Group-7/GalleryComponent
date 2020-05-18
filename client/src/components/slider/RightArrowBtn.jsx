@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const RightArrowBtn = ({ handleNextImg }) => (
-  <S.Button onClick={handleNextImg}>
+  <S.Button onClick={handleNextImg} name="right-btn">
     <FontAwesomeIcon icon={faChevronCircleRight} size="2x" />
   </S.Button>
 );

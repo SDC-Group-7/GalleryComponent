@@ -1,41 +1,19 @@
-# Project Name
+# FEC Project #
+## Gallery Component ##
+> Some usage instructions
+npm install
+  - Install dependecies
+npm run reset-db
+ - Drops any database/ resets database
+npm run seed-db
+ - This command seeds the database
+npm run server
+  - This command starts the app
 
-> Project description
 
 ## Related Projects
 
   - https://github.com/LeggoMyLego/ReviewComponent
   - https://github.com/LeggoMyLego/ProductComponent
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-npm run start
-  - starts server
-npm run react-dev
-  - starts webpack
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- Mysql @5.7
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
 

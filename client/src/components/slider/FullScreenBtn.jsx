@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 
 const FullScreenBtn = ({ handleToggleScreen }) => (
-  <S.Button onClick={handleToggleScreen}>
+  <S.Button onClick={handleToggleScreen} name="fullscreen-btn">
     <FontAwesomeIcon icon={faExpandArrowsAlt} size="3x" />
   </S.Button>
 );

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const TopArrowBtn = ({ handleClickUp }) => (
-  <S.Button type="button" onClick={handleClickUp}>
+  <S.Button type="button" onClick={handleClickUp} name="top-btn">
     <FontAwesomeIcon icon={faChevronUp} size="2x" />
   </S.Button>
 );
@@ -22,7 +22,6 @@ S.Button = styled.button`
   position:relative;
   margin-bottom: 5px;
   padding-right: 80px;
-  transition: .5s ease-in-out;
 
   &:hover {
     color: rgb(169,169,169);

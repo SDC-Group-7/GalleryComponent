@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const LeftArrowBtn = ({ handlePrevImg }) => (
-  <S.Button onClick={handlePrevImg}>
+  <S.Button onClick={handlePrevImg} name="left-btn">
     <FontAwesomeIcon icon={faChevronCircleLeft} size="2x" />
   </S.Button>
 );
