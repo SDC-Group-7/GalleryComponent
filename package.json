@@ -1,9 +1,9 @@
 {
   "name": "gallery_component",
   "version": "",
-  "description": "",
+  "description": "Image gallery component for product detail page",
   "author": "Steve Marquez",
-  "license": "",
+  "license": "unlicensed",
   "engines": {
     "node": ">=6.13.0"
   },
@@ -11,13 +11,14 @@
     "reset-db": "mysql -h 'db' -u root < schema.sql",
     "seed-db": "node db/seeder/seed.js",
     "react-dev": "webpack -w",
+    "react-prod": "webpack --mode=production",
     "start": "nodemon ./server/start.js",
     "build:docker": "bash container.bash",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
-    "server": "concurrently \"npm run start\" \"npm run react-dev\""
+    "server": "concurrently \"npm run start\" \"npm run react-prod\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -46,6 +47,8 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
+    "brotli-gzip-webpack-plugin": "^0.5.0",
+    "compression-webpack-plugin": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -66,6 +69,7 @@
     ]
   },
   "plugins": [
-    "transform-async-to-generator"
+    "transform-async-to-generator",
+    "babel-plugin-styled-components"
   ]
 }
