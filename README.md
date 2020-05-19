@@ -1,15 +1,15 @@
-# FEC Project #
-## Gallery Component ##
-> Some usage instructions
-npm install
-  - Install dependecies
-npm run reset-db
- - Drops any database/ resets database
-npm run seed-db
- - This command seeds the database
-npm run server
-  - This command starts the app
+# FEC Project
+## Gallery Component 
 
+Instructions to get the component up and running
+> Some usage instructions
+
+```bash
+npm install 
+npm run reset-db
+npm run seed-db
+npm run server
+```
 
 ## Related Projects
 
