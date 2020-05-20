@@ -38,3 +38,7 @@ STYLE-GUIDE.md
 .vscode
 coverage/
 
+# MySQL user/password
+seed/mysql.user
+seed/mysql.pass
+db/seeder/mysql.config.js
