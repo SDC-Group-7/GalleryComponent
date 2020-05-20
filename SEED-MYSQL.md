@@ -1,12 +1,13 @@
 Seed MySQL
 ----------
 1. create seed/mysql.user
-
+e.g.
 ```
 echo 'student' > seed/mysql.user
 ```
 
 2. create seed/mysql.pass
+e.g.
 ```
 echo 'student' > seed/mysql.pass
 ```
