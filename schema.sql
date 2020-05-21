@@ -6,6 +6,7 @@ USE gallery;
 
 CREATE TABLE products (
   product_id INT NOT NULL AUTO_INCREMENT,
+  product_title VARCHAR(255),
   PRIMARY KEY ( product_id )
 );
 
@@ -21,3 +22,4 @@ CREATE TABLE reference (
   img_id INT,
   PRIMARY KEY (reference_id)
 );
+
