@@ -1,7 +1,8 @@
 ## Server API
 
 ### Get list of images url
-  * GET `/api/images/:productid`
+  * GET `/api/products/:productid/images`
+  
 
 **Path Parameters:**
   * `productid` product id
@@ -11,25 +12,24 @@
 **Returns:** JSON
 
 ```json
-  [
-    {
-      "image_id": "Number", 
-      "image_url": "String", 
-      "product_id": "Number", 
-      "reference_id": "Number"
-    },
-    {
-      "image_id": "Number", 
-      "image_url": "String", 
-      "product_id": "Number", 
-      "reference_id": "Number"
-    },
-    ...
-  ]
+  {
+    "product_id" : "Number",
+    "images" : [
+      {
+        "image_id": "Number",
+        "reference_id": "Number"
+      },
+      ...
+    ]
+  }
 ```
 
 ### Add an image
-  * POST `/api/images`
+  * POST `/api/products/:productid/images`
+  
+
+**Path Parameters:**
+  * `productid`
 
 **Success Status Code:** `201`
 
@@ -37,16 +37,16 @@
 
 ```json
     {
-      "product_id": "Number",
       "image_url": "String"
     }
 ```
 
-### Update restaurant info
-  * PATCH `/api/images/:imageid`
+### Update product image
+  * PATCH `/api/products/:productid/images/:imageid`
 
 **Path Parameters:**
   * `imageid` image id
+  * `productid` product id
 
 **Success Status Code:** `204`
 
@@ -59,7 +59,7 @@
 ```
 
 ### Delete restaurant
-  * DELETE `/api/images/:imageid`
+  * DELETE `/api/products/:productid/images/:imageid`
 
 **Path Parameters:**
   * `imageid` image id

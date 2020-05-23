@@ -20,6 +20,8 @@ CREATE TABLE reference (
   reference_id INT NOT NULL AUTO_INCREMENT,
   prod_id INT NOT NULL,
   img_id INT,
-  PRIMARY KEY (reference_id)
+  PRIMARY KEY (reference_id),
+  FOREIGN KEY (prod_id) REFERENCES products(product_id),
+  FOREIGN KEY (image_id) REFERENCES images(image_id)
 );
 
