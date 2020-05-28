@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/lego-gallery', {useMongoClient: true});
 let Product = mongoose.model('Product', {
   product_id: Number,
   product_title: String,
-  images: [Image]
+  images: [{type: Schema.Types.ObjectId, ref: Image}]
 });
 
 let Image = mongoose.model('Image', {

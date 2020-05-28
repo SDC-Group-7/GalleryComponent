@@ -42,3 +42,7 @@ coverage/
 seed/mysql.user
 seed/mysql.pass
 db/seeder/mysql.config.js
+
+# Postgres
+seed/postgres.sh
+
