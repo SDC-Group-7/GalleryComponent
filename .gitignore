@@ -46,3 +46,6 @@ db/seeder/mysql.config.js
 # Postgres
 seed/postgres.sh
 
+# Mongo
+seed/seed_products_1m.json
+seed/mongo_products.json

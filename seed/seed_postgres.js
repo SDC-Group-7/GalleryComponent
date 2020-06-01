@@ -11,7 +11,7 @@ const products_csv = path.join(__dirname, 'products.csv');
 const images_csv = path.join(__dirname, 'images.csv');
 const reference_csv = path.join(__dirname, 'reference.csv');
 
-const SEED_MULTIPLE = 400000;
+const SEED_MULTIPLE = 200000;
 
 // Method 1 : use INSERT line by line
 const seed = async function(){
@@ -37,8 +37,6 @@ const seedcsv = function(n){
 
 //Generate csv file
 const gencsv = function(n){
-  console.time('gencsv');
-
   let mock_products_length = mock_products.length;
   let mock_images_length = mock_images.length;
   let mock_reference_length = mock_reference.length;
@@ -47,6 +45,78 @@ const gencsv = function(n){
   let imagesWriter = fs.createWriteStream(images_csv);
   let referenceWriter = fs.createWriteStream(reference_csv);
 
+  //products
+  function genProductCSV(callback) {
+    let productSeed = mock_products.map( p => `${p.product_sku},${p.product_title},${p.product_price}` );
+    let mockProducts = productSeed.join('\n') + '\n';
+    let i = n;
+    write();
+    function write() {
+      let ok = true;
+      do {
+        i--;
+        if(i === 0){
+          productsWriter.write(mockProducts, 'utf8', callback);
+        } else {
+          ok = productsWriter.write(mockProducts, 'utf8');
+        }
+      } while ( i > 0 && ok );
+
+      if(i > 0) {
+        productsWriter.once('drain', write);
+      }
+    }
+  }
+  console.time('gen_product_csv');
+  genProductCSV( () => {
+    productsWriter.end();
+    console.timeEnd('gen_product_csv');
+  } );
+
+  //images
+  console.time('gen_image_csv');
+  let imageSeed = mock_images.map( img => `${img.image_url}` );  
+  let mockImages = imageSeed.join('\n') + '\n';
+  let j = n;
+  writeImage();
+  function writeImage() {
+    let ok = true;
+    do {
+      j--;
+      ok = imagesWriter.write(mockImages, 'utf8');
+      if(j === 0){
+        imagesWriter.end();
+        console.timeEnd('gen_image_csv');
+      }
+    } while ( j > 0 && ok );
+
+    if(j > 0) {
+      imagesWriter.once('drain', writeImage);
+    }
+  }
+
+  //reference
+  console.time('gen_reference_csv');
+  let k = 0;
+  writeReference();
+  function writeReference() {
+    let ok = true;
+    do {
+      let referenceSeed = mock_reference.map( r => `${r.prod_id + mock_products_length * k},${r.img_id + mock_images_length * k}` );
+      ok = referenceWriter.write(referenceSeed.join('\n') + '\n', 'utf8');
+      k++;
+      if(k === n){
+        referenceWriter.end();
+        console.timeEnd('gen_reference_csv');
+      }
+    } while ( k < n && ok );
+
+    if(k < n) {
+      referenceWriter.once('drain', writeReference);
+    }
+  }
+
+/*
   for(let i = 0; i < n; i++){
     //products
     let productSeed = mock_products.map( p => `${p.product_sku},${p.product_title},${p.product_price}` );
@@ -63,12 +133,7 @@ const gencsv = function(n){
     referenceWriter.write(referenceSeed.join('\n') + '\n', 'utf8');
     // fs.appendFileSync(reference_csv, referenceSeed.join('\n') + '\n');
   }
-
-  productsWriter.end();
-  imagesWriter.end();
-  referenceWriter.end();
-
-  console.timeEnd('gencsv');
+*/
 }
 
 //load csv file
@@ -82,4 +147,6 @@ const loadcsv = async function(){
   console.timeEnd('loadcsv');
 }
 
-seedcsv(SEED_MULTIPLE);
+// seedcsv(SEED_MULTIPLE);
+gencsv(SEED_MULTIPLE);
+// loadcsv();
