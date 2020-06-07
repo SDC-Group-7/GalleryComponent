@@ -4,6 +4,10 @@ db.createUser(
   {
     user: "admin",
     pwd: passwordPrompt(), // or cleartext password
-    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+    roles: [ 
+      { role: "userAdminAnyDatabase", db: "admin" }, 
+      { role : "clusterAdmin", db : "admin" },
+      "readWriteAnyDatabase"
+    ]
   }
 )
