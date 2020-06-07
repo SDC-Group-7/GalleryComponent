@@ -8,8 +8,8 @@ const SideImageList = forwardRef((props, ref) => (
   <S.ListContainer ref={ref}>
     {props.data.map((img, i) => (
       <SideImageItem
-        img={img.image_url}
-        key={img.reference_id}
+        img={img}
+        key={i}
         id={i}
         handleDisplayImage={props.handleDisplayImage}
       />

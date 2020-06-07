@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import API from '../services/index';
 import Slider from './slider/Slider';
 import SideMenu from './side-menu/SideMenu';
+const queryString = require('query-string');
 
 export default class App extends Component {
   constructor(props) {
@@ -14,12 +15,16 @@ export default class App extends Component {
     this.handlePrevImg = this.handlePrevImg.bind(this);
     this.handleNextImg = this.handleNextImg.bind(this);
     this.handleDisplayImage = this.handleDisplayImage.bind(this);
+
   }
 
   componentDidMount() {
-    const randomProductId = Math.floor(Math.random() * 100) + 1;
-    API.getProduct(randomProductId)
-      .then((data) => (this.setState({ data })))
+    let qs = queryString.parse(location.search);
+    let product_id = qs['product_id'];
+    API.getProduct(product_id)
+      .then((data) => {
+        this.setState({ data: data[0].images });
+      })
       .catch((err) => {
         throw Error(err);
       });
@@ -61,7 +66,7 @@ export default class App extends Component {
                   <Slider
                     handlePrevImg={this.handlePrevImg}
                     handleNextImg={this.handleNextImg}
-                    imgURL={data[currentImgIndx].image_url}
+                    imgURL={data[currentImgIndx]}
                     data={data}
                     handleDisplayImage={this.handleDisplayImage}
                   />
